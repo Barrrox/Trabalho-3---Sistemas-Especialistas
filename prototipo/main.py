@@ -66,6 +66,22 @@ def iniciar_consulta():
     # Inicializa variáveis do PyDatalog
     pyd.create_terms('Y, Z')
     atividade_atual = 'atividade_usuario'
+
+    # O pyDatalog falha se um predicado usado em regras não tiver NENHUM fato.
+    # O truque abaixo adiciona um fato dummy e o remove imediatamente.
+    # Isso inicializa a estrutura interna do motor para receber consultas vazias.
+    
+    + usa_ambiente('init', 'init')
+    - usa_ambiente('init', 'init')
+
+    + usa_material('init', 'init')
+    - usa_material('init', 'init')
+
+    + usa_parte_do_corpo('init', 'init')
+    - usa_parte_do_corpo('init', 'init')
+
+    + promove_a_meta('init', 'init')
+    - promove_a_meta('init', 'init')
     
     print("\n#################################################")
     print("### SISTEMA ESPECIALISTA: EDUCAÇÃO INFANTIL ###")
@@ -105,9 +121,10 @@ def iniciar_consulta():
     # pyd.clear() # Cuidado: isso pode limpar as regras também dependendo da versão. 
                   # Melhor apenas adicionar os novos fatos para essa instância.
 
+
     for item in ambientes_escolhidos:
         + usa_ambiente(atividade_atual, item)
-        
+
     for item in materiais_escolhidos:
         + usa_material(atividade_atual, item)
         
@@ -116,15 +133,14 @@ def iniciar_consulta():
         
     for item in metas_escolhidas:
         + promove_a_meta(atividade_atual, item)
-
     # ---------------------------------------------------------
     # 3. MOTOR DE INFERÊNCIA E EXIBIÇÃO
     # ---------------------------------------------------------
     print("\n--- ANALISANDO RESULTADOS ---\n")
 
     # Busca os resultados
-    subcampos = atividade_pertence_ao_subcampo(atividade_atual, Y)
     saberes = atividade_desenvolve_saber(atividade_atual, Y)
+    subcampos = atividade_pertence_ao_subcampo(atividade_atual, Y)
     objetivos = atinge_objetivo(atividade_atual, Y)
     
     # Formata para listas limpas (pyDatalog retorna lista de tuplas ex: [('saber1',), ('saber2',)])
@@ -133,7 +149,7 @@ def iniciar_consulta():
     lista_objetivos = sorted([x[0] for x in objetivos]) if objetivos else []
 
     if not lista_subcampos:
-        print(">> Nenhuma classificação encontrada. Tente fornecer mais detalhes.")
+        print(">> Nenhuma classificação encontrada.")
         return
 
     # ---------------------------------------------------------
