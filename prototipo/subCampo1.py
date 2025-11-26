@@ -39,8 +39,8 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais') & \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla')
 
-# Objetivo teste
+# Objetivo teste (Remover depois)
 atinge_objetivo(Atividade, 'obj_teste1') <= \
     atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais')
-atinge_objetivo(Atividade, 'obj_teste2') <= \
+atinge_objetivo(Atividade, 'obj_teste1') <= \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla')

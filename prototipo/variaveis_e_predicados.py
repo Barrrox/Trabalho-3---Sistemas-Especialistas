@@ -14,7 +14,7 @@ from config_dados import DADOS_ESFORCO
 # ===========================================
 
 # Variáveis Genéricas
-pyd.create_terms('Atividade, Material, Ambiente, ParteCorpo, Meta, Esforco, Item, Y')
+pyd.create_terms('Atividade, Material, Ambiente, Esforco, Caracteristica, Y')
 
 # Predicados de Entrada (Fatos Brutos fornecidos pelo usuário)
 pyd.create_terms('usa_ambiente, usa_material, usa_parte_do_corpo, promove_a_meta')
@@ -61,10 +61,10 @@ for tipo_esforco, categorias in DADOS_ESFORCO.items():
 Convertemos as entradas específicas do usuário em uma característica genérica.
 Isso simplifica a regra de esforço.
 """
-tem_caracteristica(Atividade, Item) <= usa_material(Atividade, Item)
-tem_caracteristica(Atividade, Item) <= usa_ambiente(Atividade, Item)
-tem_caracteristica(Atividade, Item) <= usa_parte_do_corpo(Atividade, Item)
-tem_caracteristica(Atividade, Item) <= promove_a_meta(Atividade, Item)
+tem_caracteristica(Atividade, Caracteristica) <= usa_material(Atividade, Caracteristica)
+tem_caracteristica(Atividade, Caracteristica) <= usa_ambiente(Atividade, Caracteristica)
+tem_caracteristica(Atividade, Caracteristica) <= usa_parte_do_corpo(Atividade, Caracteristica)
+tem_caracteristica(Atividade, Caracteristica) <= promove_a_meta(Atividade, Caracteristica)
 
 
 # ===========================================
@@ -77,8 +77,8 @@ então a atividade promove esse esforço.
 """
 
 promove_tipo_esforco(Atividade, Esforco) <= \
-    tem_caracteristica(Atividade, Item) & \
-    caracteristica_implica_esforco(Item, Esforco)
+    tem_caracteristica(Atividade, Caracteristica) & \
+    caracteristica_implica_esforco(Caracteristica, Esforco)
 
 
 # ===========================================
