@@ -14,12 +14,9 @@ def iniciar_consulta():
     
     print("\n--- SISTEMA ESPECIALISTA CMEI (TESTE) ---")
     
-
-
     # inicializa a variavel de atividade
     atividade_atual = 'atividade_do_usuario'
     
-
     # Exemplo de atividade: musica no patio
     + usa_material(atividade_atual, 'musicas')
     + usa_ambiente(atividade_atual, 'patio_descoberto')
@@ -74,12 +71,25 @@ def iniciar_consulta():
     print(f"Saberes detectados: {saberes_encontrados}")
 
     # Final: Ver objetivos
-    resultado = atinge_objetivo(atividade_atual, Y)
+    objetivos_atingidos = atinge_objetivo(atividade_atual, Y)
+    saberes_encontrados = atividade_desenvolve_saber(atividade_atual, Y)
+    subcampos_encontrados = atividade_pertence_ao_subcampo(atividade_atual, Y)
+
     
-    if resultado:
-        print(f"SUCESSO! O sistema concluiu: {resultado}")
+    if objetivos_atingidos:
+        print(f"SUCESSO! O sistema concluiu: {objetivos_atingidos}\n")
     else:
-        print("RESULTADO: Nenhum objetivo específico foi atingido com esses dados.")
+        print("RESULTADO: Nenhum objetivo específico foi atingido com esses dados.\n")
+
+    if saberes_encontrados:
+        print(f"Saberes desenvolvidos pela atividade: {saberes_encontrados}\n")
+    else:
+        print("Nenhum saber foi desenvolvido pela atividade.\n")
+
+    if subcampos_encontrados:
+        print(f"Subcampos relacionados à atividade: {subcampos_encontrados}\n")
+    else:
+        print("Nenhum subcampo foi relacionado à atividade.\n")
 
 # Executa o programa
 if __name__ == "__main__":

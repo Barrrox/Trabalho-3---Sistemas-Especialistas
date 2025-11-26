@@ -1,0 +1,105 @@
+"""
+variaveis_e_predicados.py
+
+Este arquivo define:
+1. Todos os termos (Vocabulário) do sistema.
+2. A CAMADA 1 da lógica: Tradução de Entradas (Materiais/Corpo/Ambiente/Meta) para Tipos de Esforço.
+   Utiliza os dados importados de 'config_dados.py' para gerar regras dinamicamente.
+"""
+from pyDatalog import pyDatalog as pyd
+from config_dados import DADOS_ESFORCO
+
+# ===========================================
+# 1. DEFINIÇÃO DE TERMOS (VOCABULÁRIO)
+# ===========================================
+
+# Variáveis Genéricas
+pyd.create_terms('Atividade, Material, Ambiente, ParteCorpo, Meta, Esforco, Item, Y')
+
+# Predicados de Entrada (Fatos Brutos fornecidos pelo usuário)
+pyd.create_terms('usa_ambiente, usa_material, usa_parte_do_corpo, promove_a_meta')
+
+# Predicados Auxiliares
+# Este predicado diz: "A caracteristica X (independente se é material, corpo, etc) implica esforço Y"
+pyd.create_terms('caracteristica_implica_esforco')
+
+# Predicados Intermediários (O Funil)
+# Unifica todas as entradas do usuário em uma única estrutura lógica
+pyd.create_terms('tem_caracteristica')
+
+# Predicados Intermediários (Camadas de Abstração)
+pyd.create_terms('promove_tipo_esforco')
+pyd.create_terms('atividade_desenvolve_saber')
+pyd.create_terms('atividade_pertence_ao_subcampo')
+
+# Predicado Final (Saída)
+pyd.create_terms('atinge_objetivo')
+
+
+# ===========================================
+# 2. CARREGANDO FATOS (CONFIG -> PYDATALOG)
+# ===========================================
+"""
+Aqui iteramos sobre o dicionário DADOS_ESFORCO e criamos fatos unificados na memória.
+Independentemente de ser material ou ambiente, carregamos como 'caracteristica_implica_esforco'.
+"""
+
+# Itera sobre todos os tipos de esforço definidos no DADOS_ESFORCO
+for tipo_esforco, categorias in DADOS_ESFORCO.items():
+    # Itera sobre todas as sub-listas (materiais, ambientes, corpo, metas)
+    # e trata tudo como "Item"
+    for lista_itens in categorias.values():
+        # Itera sobre cada item na sub-lista (Ex: lápis_de_cor, dedos_das_maos, etc)
+        for item in lista_itens:
+            + caracteristica_implica_esforco(item, tipo_esforco)
+
+
+# ===========================================
+# 3. REGRAS DE UNIFICAÇÃO (O FUNIL)
+# ===========================================
+"""
+Convertemos as entradas específicas do usuário em uma característica genérica.
+Isso simplifica a regra de esforço.
+"""
+tem_caracteristica(Atividade, Item) <= usa_material(Atividade, Item)
+tem_caracteristica(Atividade, Item) <= usa_ambiente(Atividade, Item)
+tem_caracteristica(Atividade, Item) <= usa_parte_do_corpo(Atividade, Item)
+tem_caracteristica(Atividade, Item) <= promove_a_meta(Atividade, Item)
+
+
+# ===========================================
+# 4. REGRA MESTRA DE TIPO DE ESFORÇO
+# ===========================================
+"""
+Regra única que substitui todas as anteriores.
+Se a atividade tem uma característica, e essa característica implica um esforço,
+então a atividade promove esse esforço.
+"""
+
+promove_tipo_esforco(Atividade, Esforco) <= \
+    tem_caracteristica(Atividade, Item) & \
+    caracteristica_implica_esforco(Item, Esforco)
+
+
+# ===========================================
+# 5. CASOS ESPECIAIS (REGRAS COMPLEXAS)
+# ===========================================
+"""
+Aqui ficam as regras que NÃO são classificações diretas 1-para-1.
+Geralmente regras que exigem combinações (AND) de fatores.
+Agora utilizam 'tem_caracteristica' para serem consistentes.
+"""
+
+# Exemplo: Cordas só é fina se usar as mãos (senão pode ser ampla/pular corda)
+promove_tipo_esforco(Atividade, 'coordenacao_motora_fina') <= \
+    (tem_caracteristica(Atividade, 'cordas') & tem_caracteristica(Atividade, 'dedos_das_maos'))
+
+# Exemplo: Bolas com pés ou pernas é ampla (reforço, embora já esteja na lista geral)
+promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') <= \
+    tem_caracteristica(Atividade, 'bolas') & tem_caracteristica(Atividade, 'pes')
+
+promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') <= \
+    tem_caracteristica(Atividade, 'bolas') & tem_caracteristica(Atividade, 'pernas')
+
+promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') <= \
+    tem_caracteristica(Atividade, 'bolas') & tem_caracteristica(Atividade, 'corpo')

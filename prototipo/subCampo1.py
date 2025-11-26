@@ -7,7 +7,7 @@ from variaveis_e_predicados import *
 # Regras
 # ==========================================
 
-# Apropriar-se de gestos e movimentos...
+# SubCampo 01: Apropriar-se de gestos e movimentos...
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG01') <= atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG01') <= atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG01') <= atividade_desenvolve_saber(Atividade, 'orientacao_espacial')
@@ -25,7 +25,11 @@ atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla') <= \
 
 atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais') <= usa_material(Atividade, 'instrumentos_musicais')
 atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais') <= usa_material(Atividade, 'musicas')
-    
+
+atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= usa_ambiente(Atividade, 'patio_descoberto')
+
+# ...
+
 # ==========================================
 # Regras específicas para objetivos do subcampo
 # ==========================================
