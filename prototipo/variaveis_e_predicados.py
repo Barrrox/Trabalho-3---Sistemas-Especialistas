@@ -14,7 +14,7 @@ from config_dados import DADOS_ESFORCO
 # ===========================================
 
 # Variáveis Genéricas
-pyd.create_terms('Atividade, Material, Ambiente, Esforco, Caracteristica, Y')
+pyd.create_terms('Atividade, Material, Ambiente, ParteDoCorpo, Esforco, Caracteristica, Y')
 
 # Predicados de Entrada (Fatos Brutos fornecidos pelo usuário)
 pyd.create_terms('usa_ambiente, usa_material, usa_parte_do_corpo, promove_a_meta')

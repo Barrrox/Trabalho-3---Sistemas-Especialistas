@@ -116,11 +116,6 @@ def iniciar_consulta():
     # ---------------------------------------------------------
     # 2. INSERÇÃO NA MEMÓRIA DE TRABALHO
     # ---------------------------------------------------------
-    
-    # Limpa fatos antigos da memória (boa prática em loops, embora aqui seja run-once)
-    # pyd.clear() # Cuidado: isso pode limpar as regras também dependendo da versão. 
-                  # Melhor apenas adicionar os novos fatos para essa instância.
-
 
     for item in ambientes_escolhidos:
         + usa_ambiente(atividade_atual, item)
@@ -133,6 +128,7 @@ def iniciar_consulta():
         
     for item in metas_escolhidas:
         + promove_a_meta(atividade_atual, item)
+        
     # ---------------------------------------------------------
     # 3. MOTOR DE INFERÊNCIA E EXIBIÇÃO
     # ---------------------------------------------------------
