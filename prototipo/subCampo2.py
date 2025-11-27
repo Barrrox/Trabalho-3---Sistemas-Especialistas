@@ -8,7 +8,6 @@ from variaveis_e_predicados import *
 # Regras
 # ==========================================
 
-# SubCampo 02: Deslocar seu corpo no espaço...
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG02') <= atividade_desenvolve_saber(Atividade, 'corpo_e_espaco')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG02') <= atividade_desenvolve_saber(Atividade, 'nocoes_espaciais')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG02') <= atividade_desenvolve_saber(Atividade, 'orientacao_espacial')
@@ -17,15 +16,21 @@ atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG02') <= atividade_desenvolve
 # Regras específicas para saberes do subcampo
 # ==========================================
 
-atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= promove_tipo_esforco(Atividade, 'exploracao_sensorial') & \
+atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= \
+    tem_caracteristica(Atividade, 'exploracao_sensorial') & \
     tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal') & \
     tem_caracteristica(Atividade, 'expressao_corporal')
-atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') & \
+atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= \
+    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') & \
     promove_tipo_esforco(Atividade, 'fisico')
-atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= tem_caracteristica(Atividade, 'organizacao_de_objetos')
-atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= tem_caracteristica(Atividade, 'obedecer_regras')
-atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= promove_tipo_esforco(Atividade, 'logico')
-atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= tem_caracteristica(Atividade, 'autonomia_nas_tarefas')
+atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
+    tem_caracteristica(Atividade, 'organizacao_de_objetos')
+atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
+    tem_caracteristica(Atividade, 'obedecer_regras')
+atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
+    promove_tipo_esforco(Atividade, 'logico')
+atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= \
+    tem_caracteristica(Atividade, 'autonomia_nas_tarefas')
 
 
 # ==========================================
@@ -42,7 +47,7 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
 
 # OBJ3: Exploracoes com diferentes perspectivas
 atinge_objetivo(Atividade, 'subcampo2_objetivo3') <= \
-    atividade_desenvolve_saber(Atividade, 'orientacao_espacial')
+    atividade_desenvolve_saber(Atividade, 'orientacao_espacial') & \
     promove_tipo_esforco(Atividade, 'exploracao_sensorial')
 
 # OBJ4: percorrer trajetos inventados ou propostos

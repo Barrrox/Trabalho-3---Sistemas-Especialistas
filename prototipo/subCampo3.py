@@ -7,7 +7,6 @@ from variaveis_e_predicados import *
 # Regras
 # ==========================================
 
-# SubCampo 02: Deslocar seu corpo no espaço...
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG03') <= atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG03') <= atividade_desenvolve_saber(Atividade, 'esquema_corporal')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG03') <= atividade_desenvolve_saber(Atividade, 'danca')
@@ -17,13 +16,19 @@ atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG03') <= atividade_desenvolve
 # Regras específicas para saberes do subcampo
 # ==========================================
 
-atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
-atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= promove_tipo_esforco(Atividade, 'fisico') 
-atividade_desenvolve_saber(Atividade, 'esquema_corporal') <= tem_caracteristica(Atividade, 'expressao_sensorial')
-atividade_desenvolve_saber(Atividade, 'danca') <= tem_caracteristica(Atividade, 'expressao_corporal') & \
+atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= \
+    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
+atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= \
+    promove_tipo_esforco(Atividade, 'fisico') 
+atividade_desenvolve_saber(Atividade, 'esquema_corporal') <= \
+    tem_caracteristica(Atividade, 'expressao_sensorial')
+atividade_desenvolve_saber(Atividade, 'danca') <= \
+    tem_caracteristica(Atividade, 'expressao_corporal') & \
     tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal')
-atividade_desenvolve_saber(Atividade, 'imitacao_como_expressao') <= tem_caracteristica(Atividade, 'socializacao') & \
-atividade_desenvolve_saber(Atividade, 'imitacao_como_expressao') <= tem_caracteristica(Atividade, 'expressao_corporal') & \
+atividade_desenvolve_saber(Atividade, 'imitacao_como_expressao') <= \
+    tem_caracteristica(Atividade, 'socializacao')
+atividade_desenvolve_saber(Atividade, 'imitacao_como_expressao') <= \
+    tem_caracteristica(Atividade, 'expressao_corporal') & \
     tem_caracteristica(Atividade, 'reconhecimento_de_padroes')
 
 

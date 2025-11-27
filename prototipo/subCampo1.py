@@ -7,7 +7,6 @@ from variaveis_e_predicados import *
 # Regras
 # ==========================================
 
-# SubCampo 01: Apropriar-se de gestos e movimentos...
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG01') <= atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG01') <= atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais')
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG01') <= atividade_desenvolve_saber(Atividade, 'orientacao_espacial')
@@ -142,14 +141,17 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo5') <= \
 
 # OBJETIVO 6: Identificar objetos por meio da visão
 atinge_objetivo(Atividade, 'subcampo1_objetivo6') <= \
+    desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
     tem_caracteristica(Atividade, 'exploracao_sensorial') & \
     tem_caracteristica(Atividade, 'olhos')
+    
 
 # OBJETIVO 7: Manipular objetos, visando ao desenvolvimento da coordenação óculo-manual
 atinge_objetivo(Atividade, 'subcampo1_objetivo7') <= \
     usa_parte_do_corpo(Atividade, ParteDoCorpo) & \
     caracteristica_implica_esforco(ParteDoCorpo, 'coordenacao_motora_fina') & \
-    tem_caracteristica(Atividade, 'olhos')
+    tem_caracteristica(Atividade, 'olhos') & \
+    desenvolve_saber(Atividade, 'orgaos_dos_sentidos')
 
 # OBJETIVO 8: Identificar, por meio de expressões e da linguagem, alguns sons presentes
 # em seu cotidiano
