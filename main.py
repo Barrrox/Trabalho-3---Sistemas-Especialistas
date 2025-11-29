@@ -7,11 +7,20 @@ e exibir os resultados em formato de árvore hierárquica.
 """
 
 from pyDatalog import pyDatalog as pyd
-# Importa regras específicas (necessário para que o pyDatalog conheça as implicações)
-from base_de_conhecimento.subCampo1 import *
-from base_de_conhecimento.subCampo2 import *
-from base_de_conhecimento.subCampo3 import *
-from base_de_conhecimento.config_dados import DADOS_ESFORCO
+
+# IMPORTAÇÃO LIMPA: 
+# Ao importar o pacote, o __init__.py roda e configura tudo (fatos, regras, termos)
+import base_de_conhecimento 
+
+# Precisamos importar explicitamente os termos e dados para usar nos menus e queries
+# Mas a lógica já está carregada.
+from base_de_conhecimento.vocabulario import (
+    usa_ambiente, usa_material, usa_parte_do_corpo, promove_a_meta,
+    atividade_pertence_ao_subcampo, atinge_objetivo, objetivo_pertence_ao_subcampo,
+    atividade_desenvolve_saber,
+    Y, Objetivo, SubCampo # Variáveis
+)
+from base_de_conhecimento.dados import DADOS_ESFORCO
 
 def obter_opcoes_unicas(chave_dicionario):
     """
@@ -67,22 +76,6 @@ def iniciar_consulta():
     # Inicializa variáveis do PyDatalog
     pyd.create_terms('Y, Z')
     atividade_atual = 'atividade_usuario'
-
-    # O pyDatalog falha se um predicado usado em regras não tiver NENHUM fato.
-    # O truque abaixo adiciona um fato dummy e o remove imediatamente.
-    # Isso inicializa a estrutura interna do motor para receber consultas vazias.
-    
-    + usa_ambiente('init', 'init')
-    - usa_ambiente('init', 'init')
-
-    + usa_material('init', 'init')
-    - usa_material('init', 'init')
-
-    + usa_parte_do_corpo('init', 'init')
-    - usa_parte_do_corpo('init', 'init')
-
-    + promove_a_meta('init', 'init')
-    - promove_a_meta('init', 'init')
     
     print("\n#################################################")
     print("### SISTEMA ESPECIALISTA: EDUCAÇÃO INFANTIL ###")
