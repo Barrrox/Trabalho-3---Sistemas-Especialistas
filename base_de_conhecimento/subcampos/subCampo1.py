@@ -1,4 +1,4 @@
-from base_de_conhecimento.variaveis_e_predicados import *
+from base_de_conhecimento.vocabulario import *
 
 # (EI02/03CG01) Apropriar-se de gestos e movimentos de sua cultura no cuidado de si e 
 # nos jogos e brincadeiras.
