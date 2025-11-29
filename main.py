@@ -8,9 +8,9 @@ e exibir os resultados em formato de árvore hierárquica.
 
 from pyDatalog import pyDatalog as pyd
 # Importa regras específicas (necessário para que o pyDatalog conheça as implicações)
-from base_de_conhecimento.subCampo1 import *
-from base_de_conhecimento.subCampo2 import *
-from base_de_conhecimento.subCampo3 import *
+from base_de_conhecimento.subcampos.subCampo1 import *
+from base_de_conhecimento.subcampos.subCampo2 import *
+from base_de_conhecimento.subcampos.subCampo3 import *
 from base_de_conhecimento.config_dados import DADOS_ESFORCO
 
 def obter_opcoes_unicas(chave_dicionario):
@@ -65,7 +65,7 @@ def exibir_menu_e_selecionar(titulo, lista_opcoes):
 
 def iniciar_consulta():
     # Inicializa variáveis do PyDatalog
-    pyd.create_terms('Y, Z')
+    pyd.create_terms('Y')
     atividade_atual = 'atividade_usuario'
 
     # O pyDatalog falha se um predicado usado em regras não tiver NENHUM fato.
@@ -135,63 +135,62 @@ def iniciar_consulta():
     # ---------------------------------------------------------
     print("\n--- ANALISANDO RESULTADOS ---\n")
 
-    # Busca os resultados
-    saberes = atividade_desenvolve_saber(atividade_atual, Y)
-    subcampos = atividade_pertence_ao_subcampo(atividade_atual, Y)
-    objetivos = atinge_objetivo(atividade_atual, Y)
+    # Busca os resultados (retorna lista de tuplas)
+    # A variável 'objetivos' conterá algo como [('EI02CG01',), ('EI03TS02',)]
+    objetivos_atingidos_consulta = atinge_objetivo(atividade_atual, Y)
 
-    # # Debug
-    # print()
-    # print("Debug - Resultados brutos:")
-    # print("\n\nSubcampos:", subcampos)
-    # print("\n\nSaberes:", saberes)
-    # print("\n\nObjetivos:", objetivos)
-    
-    # Formata para listas limpas (pyDatalog retorna lista de tuplas ex: [('saber1',), ('saber2',)])
-    lista_subcampos = sorted([x[0] for x in subcampos]) if subcampos else []
-    lista_saberes = sorted([x[0] for x in saberes]) if saberes else []
-    lista_objetivos = sorted([x[0] for x in objetivos]) if objetivos else []
-
-    if not lista_subcampos:
-        print(">> Nenhuma classificação encontrada.")
+    if not objetivos_atingidos_consulta:
+        print(">> Nenhuma classificação encontrada (nenhum objetivo atingido).")
         return
 
     # ---------------------------------------------------------
-    # 4. VISUALIZAÇÃO EM ÁRVORE
+    # 4. VISUALIZAÇÃO COM NOVA LÓGICA (DICIONÁRIO)
     # ---------------------------------------------------------
-    # Como o pyDatalog desacopla as queries, montamos a árvore assumindo 
-    # que os saberes e objetivos encontrados pertencem ao contexto dos subcampos válidos.
-    
-    print("Resultados Classificados:")
-    
-    for sub in lista_subcampos:
-        print(f"\n SubCampo: {sub}")
-        
-        if not lista_saberes:
-             print("    └── (Nenhum saber específico identificado)")
-             continue
 
-        for i, saber in enumerate(lista_saberes):
-            # Formatação do conector da árvore
-            conector_saber = "├──" if i < len(lista_saberes) - 1 else "└──"
-            print(f"   {conector_saber}  Saber: {saber.replace('_', ' ')}")
+    # Cria dicionário para guardar os resultados: Chave = Subcampo (int), Valor = Set de Objetivos (int)
+    # Suporta subcampos 1 a 4 (range(5) gera 0,1,2,3,4 - ignoramos o 0 ou ajustamos conforme necessidade)
+    resultados = {i+1 : set() for i in range(5)}
+
+    # Itera sobre a lista de objetivos atingidos para capturar
+    # o numero do subcampo e seus respectivos objetivos atingidos
+    for tupla_obj in objetivos_atingidos_consulta:
+        subcampo_objetivo_str = tupla_obj[0] # Extrai a string da tupla
+        
+        try:
+            # Lógica de parsing solicitada: índice 8 para subcampo, último char para objetivo
+            subcampo = int(subcampo_objetivo_str[8]) 
+            objetivo = int(subcampo_objetivo_str[-1])
             
-            # Aqui listamos os objetivos. 
-            # Nota: Idealmente, filtraríamos quais objetivos pertencem a este saber específico.
-            # Como o predicado é global, listamos os objetivos atingidos neste contexto.
-            if lista_objetivos:
-                for j, obj in enumerate(lista_objetivos):
-                    conector_obj = "│      ├──" if j < len(lista_objetivos) - 1 else "│      └──"
-                    # Se for o último saber, ajusta a indentação visual
-                    if conector_saber == "└──":
-                         conector_obj = "       ├──" if j < len(lista_objetivos) - 1 else "       └──"
-                    
-                    print(f"   {conector_obj}  Objetivo: {obj.replace('_', ' ')}")
-            else:
-                prefixo_vazio = "│" if conector_saber == "├──" else " "
-                print(f"   {prefixo_vazio}      └── (Nenhum objetivo curricular fechado atingido)")
+            if subcampo in resultados:
+                resultados[subcampo].add(objetivo)
+        except (IndexError, ValueError):
+            # Caso a string do objetivo não esteja no formato esperado (ex: muito curta)
+            continue
+
+    print("Resultados Classificados:\n")
+    
+    resultado_encontrado = False
+
+    # Itera sobre o dicionário para exibir a árvore
+    for num_subcampo, set_objetivos in resultados.items():
+        if set_objetivos:
+            resultado_encontrado = True
+            print(f"Subcampo {num_subcampo}")
+            
+            lista_obj_ordenada = sorted(list(set_objetivos))
+            
+            for i, num_obj in enumerate(lista_obj_ordenada):
+                # Verifica se é o último item para decidir o conector
+                is_last = (i == len(lista_obj_ordenada) - 1)
+                conector = "└──" if is_last else "├──"
+                
+                print(f"   {conector} Objetivo {num_obj}")
+    
+    if not resultado_encontrado:
+        print("   └── (Nenhum objetivo específico identificado na análise)")
 
     print("\n" + "="*40)
-
+    
+   
 if __name__ == "__main__":
     iniciar_consulta()
