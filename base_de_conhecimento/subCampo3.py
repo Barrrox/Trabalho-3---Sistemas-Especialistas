@@ -1,4 +1,4 @@
-from variaveis_e_predicados import *
+from base_de_conhecimento.variaveis_e_predicados import *
 
 # (EI02/03CG03) Explorar formas de deslocamento no espaço (pular, saltar, dançar), 
 # combinando movimentos e seguindo orientações. 

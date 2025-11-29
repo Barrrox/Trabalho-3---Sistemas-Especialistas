@@ -7,10 +7,11 @@ e exibir os resultados em formato de árvore hierárquica.
 """
 
 from pyDatalog import pyDatalog as pyd
-from variaveis_e_predicados import *
 # Importa regras específicas (necessário para que o pyDatalog conheça as implicações)
-from subCampo1 import * # Importa os dados para gerar os menus dinamicamente
-from config_dados import DADOS_ESFORCO
+from base_de_conhecimento.subCampo1 import *
+from base_de_conhecimento.subCampo2 import *
+from base_de_conhecimento.subCampo3 import *
+from base_de_conhecimento.config_dados import DADOS_ESFORCO
 
 def obter_opcoes_unicas(chave_dicionario):
     """
@@ -138,6 +139,13 @@ def iniciar_consulta():
     saberes = atividade_desenvolve_saber(atividade_atual, Y)
     subcampos = atividade_pertence_ao_subcampo(atividade_atual, Y)
     objetivos = atinge_objetivo(atividade_atual, Y)
+
+    # # Debug
+    # print()
+    # print("Debug - Resultados brutos:")
+    # print("\n\nSubcampos:", subcampos)
+    # print("\n\nSaberes:", saberes)
+    # print("\n\nObjetivos:", objetivos)
     
     # Formata para listas limpas (pyDatalog retorna lista de tuplas ex: [('saber1',), ('saber2',)])
     lista_subcampos = sorted([x[0] for x in subcampos]) if subcampos else []

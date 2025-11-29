@@ -7,7 +7,7 @@ Este arquivo define:
    Utiliza os dados importados de 'config_dados.py' para gerar regras dinamicamente.
 """
 from pyDatalog import pyDatalog as pyd
-from config_dados import DADOS_ESFORCO
+from base_de_conhecimento.config_dados import DADOS_ESFORCO
 
 # ===========================================
 # 1. DEFINIÇÃO DE TERMOS (VOCABULÁRIO)
@@ -71,7 +71,7 @@ tem_caracteristica(Atividade, Caracteristica) <= promove_a_meta(Atividade, Carac
 # 4. REGRA MESTRA DE TIPO DE ESFORÇO
 # ===========================================
 """
-Regra única que substitui todas as anteriores.
+Regra no topo da hierarquia do tipo de esforço que substitui todas as anteriores.
 Se a atividade tem uma característica, e essa característica implica um esforço,
 então a atividade promove esse esforço.
 """
