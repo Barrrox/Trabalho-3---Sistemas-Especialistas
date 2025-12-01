@@ -1,4 +1,4 @@
-from base_de_conhecimento.vocabulario import *
+from base_de_conhecimento.variaveis_e_predicados import *
 
 # (EI02/03CG04) Demonstrar progressiva independência no cuidado do seu corpo. 
 

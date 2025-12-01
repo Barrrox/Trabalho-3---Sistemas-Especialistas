@@ -1,4 +1,4 @@
-from base_de_conhecimento.vocabulario import *
+from base_de_conhecimento.variaveis_e_predicados import *
 
 # (EI02/03CG05) Desenvolver progressivamente as habilidades manuais, adquirindo controle 
 # para desenhar, pintar, rasgar, folhear, entre outros. 

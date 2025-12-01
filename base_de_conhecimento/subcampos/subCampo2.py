@@ -1,4 +1,4 @@
-from base_de_conhecimento.vocabulario import *
+from base_de_conhecimento.variaveis_e_predicados import *
 
 # (EI02/03CG02) Deslocar seu corpo no espaço, orientando-se por noções como em frente, 
 # atrás, no alto, embaixo, dentro, fora etc., ao se envolver em brincadeiras e atividades de 

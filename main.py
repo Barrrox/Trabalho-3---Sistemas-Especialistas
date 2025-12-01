@@ -67,6 +67,22 @@ def iniciar_consulta():
     # Inicializa variáveis do PyDatalog
     pyd.create_terms('Y')
     atividade_atual = 'atividade_usuario'
+
+    # O pyDatalog falha se um predicado usado em regras não tiver NENHUM fato.
+    # O truque abaixo adiciona um fato dummy e o remove imediatamente.
+    # Isso inicializa a estrutura interna do motor para receber consultas vazias.
+    
+    + usa_ambiente('init', 'init')
+    - usa_ambiente('init', 'init')
+
+    + usa_material('init', 'init')
+    - usa_material('init', 'init')
+
+    + usa_parte_do_corpo('init', 'init')
+    - usa_parte_do_corpo('init', 'init')
+
+    + promove_a_meta('init', 'init')
+    - promove_a_meta('init', 'init')
     
     print("\n#################################################")
     print("### SISTEMA ESPECIALISTA: EDUCAÇÃO INFANTIL ###")
