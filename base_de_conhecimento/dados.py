@@ -29,7 +29,7 @@ DADOS_ESFORCO = {
         'materiais': ['livros', 'jogos_de_tabuleiro', 'quebra_cabeca', 'blocos_de_montar', 'videos'],
         'ambientes': ['sala', 'biblioteca'],
         'partes_do_corpo': [],
-        'metas_promovidas': ['resolucao_de_problemas', 'reconhecimento_de_padroes', 'obedecer_regras', 'imaginacao']
+        'metas_promovidas': ['resolucao_de_problemas', 'reconhecimento_de_padroes', 'obedecer_regras', 'imaginacao', 'pedir_ajuda']
     },
     'fisico': {
         'materiais': ['tinta_guache', 'areia', 'agua', 'massinha_de_modelar', 'instrumentos_musicais', 'musicas', 'folhas_naturais', 'comida', 'utensilios_de_higiene'],
