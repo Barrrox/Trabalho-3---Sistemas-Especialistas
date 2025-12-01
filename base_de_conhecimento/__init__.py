@@ -20,5 +20,7 @@ from . import regras_gerais
 from .subcampos import subCampo1
 from .subcampos import subCampo2
 from .subcampos import subCampo3
+from .subcampos import subCampo4
+from .subcampos import subCampo5
 
 print("Base de Conhecimento Carregada")
