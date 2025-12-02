@@ -87,7 +87,7 @@ DADOS_ESFORCO = {
         ],
         'metas_promovidas': [
             'resolucao_de_problemas', 'reconhecimento_de_padroes', 
-            'obedecer_regras', 'imaginacao'
+            'obedecer_regras', 'imaginacao', 'pedir_ajuda'
         ]
     },
 
