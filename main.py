@@ -11,6 +11,8 @@ from pyDatalog import pyDatalog as pyd
 from base_de_conhecimento.subcampos.subCampo1 import *
 from base_de_conhecimento.subcampos.subCampo2 import *
 from base_de_conhecimento.subcampos.subCampo3 import *
+from base_de_conhecimento.subcampos.subCampo4 import *
+from base_de_conhecimento.subcampos.subCampo5 import *
 from base_de_conhecimento.config_dados import DADOS_ESFORCO
 
 def obter_opcoes_unicas(chave_dicionario):
@@ -43,6 +45,13 @@ def exibir_menu_e_selecionar(titulo, lista_opcoes):
     
     while not escolha_valida:
         entrada = input(">> ")
+
+        # Opção secreta para os devs :)
+        if entrada == "tudo":
+            selecionados = [lista_opcoes[i] for i in range(len(lista_opcoes))]
+            escolha_valida = True
+            return selecionados
+
         if not entrada.strip():
             # Se der enter vazio, retorna lista vazia (nenhuma seleção)
             return []

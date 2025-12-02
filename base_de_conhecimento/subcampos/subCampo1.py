@@ -104,19 +104,19 @@ pegar, manusear, mover e transportar objetos com
 diferentes características.
 
 """
-# OBJETIVO 1: Participar de brincadeiras com cantigas, rimas, histórias,
+# OBJ1: Participar de brincadeiras com cantigas, rimas, histórias,
 # parlendas ou outras situações que envolvam movimentos corporais.
 atinge_objetivo(Atividade, 'subcampo1_objetivo1') <= \
     atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais') & \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla')
 
 
-# OBJETIVO 2: Acompanhar ritmos de diferentes músicas com o corpo
+# OBJ2: Acompanhar ritmos de diferentes músicas com o corpo
 atinge_objetivo(Atividade, 'subcampo1_objetivo2') <= \
     tem_caracteristica(Atividade, 'musicas') & \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla')
 
-# OBJETIVO 3: Executar movimentos e gestos a partir de estímulos visuais e auditivos.
+# OBJ3: Executar movimentos e gestos a partir de estímulos visuais e auditivos.
 atinge_objetivo(Atividade, 'subcampo1_objetivo3') <= \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla') & \
     tem_caracteristica(Atividade, 'olhos')
@@ -128,32 +128,32 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo3') <= \
     tem_caracteristica(Atividade, 'exploracao_sensorial')
 
 
-# OBJETIVO 4: Conhecer os objetos, materiais, expressões culturais corporais, danças,
+# OBJ4: Conhecer os objetos, materiais, expressões culturais corporais, danças,
 # músicas e brincadeiras típicas de sua região e de sua cultura e de outras.
 atinge_objetivo(Atividade, 'subcampo1_objetivo4') <= \
     atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais')
 
 
-# OBJETIVO 5: Imitar movimentos fundamentais, com auxílio do professor.
+# OBJ5: Imitar movimentos fundamentais, com auxílio do professor.
 atinge_objetivo(Atividade, 'subcampo1_objetivo5') <= \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla') & \
     atividade_desenvolve_saber(Atividade, 'esquema_corporal')
 
-# OBJETIVO 6: Identificar objetos por meio da visão
+# OBJ6: Identificar objetos por meio da visão
 atinge_objetivo(Atividade, 'subcampo1_objetivo6') <= \
     atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
     tem_caracteristica(Atividade, 'exploracao_sensorial') & \
     tem_caracteristica(Atividade, 'olhos')
     
 
-# OBJETIVO 7: Manipular objetos, visando ao desenvolvimento da coordenação óculo-manual
+# OBJ7: Manipular objetos, visando ao desenvolvimento da coordenação óculo-manual
 atinge_objetivo(Atividade, 'subcampo1_objetivo7') <= \
     usa_parte_do_corpo(Atividade, ParteDoCorpo) & \
     caracteristica_implica_esforco(ParteDoCorpo, 'coordenacao_motora_fina') & \
     tem_caracteristica(Atividade, 'olhos') & \
     atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos')
 
-# OBJETIVO 8: Identificar, por meio de expressões e da linguagem, alguns sons presentes
+# OBJ8: Identificar, por meio de expressões e da linguagem, alguns sons presentes
 # em seu cotidiano
 
 

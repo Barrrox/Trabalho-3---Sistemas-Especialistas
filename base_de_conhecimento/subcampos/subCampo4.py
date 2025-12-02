@@ -65,7 +65,7 @@ atinge_objetivo(Atividade, 'subcampo4_objetivo4') <= \
 atinge_objetivo(Atividade, 'subcampo4_objetivo5') <= \
     atividade_desenvolve_saber(Atividade, 'cuidados_com_saude') & \
     tem_caracteristica(Atividade, 'obedecer_regras') & \
-    tem_caracteristica(Atividade, 'logico')
+    promove_tipo_esforco(Atividade, 'logico')
 
 # OBJ6: Usar os utensilios apropriados na alimentacao e higiene
 atinge_objetivo(Atividade, 'subcampo4_objetivo6') <= \

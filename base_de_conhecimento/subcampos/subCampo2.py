@@ -48,7 +48,7 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
 # OBJ3: Exploracoes com diferentes perspectivas
 atinge_objetivo(Atividade, 'subcampo2_objetivo3') <= \
     atividade_desenvolve_saber(Atividade, 'orientacao_espacial') & \
-    promove_tipo_esforco(Atividade, 'exploracao_sensorial')
+    tem_caracteristica(Atividade, 'exploracao_sensorial')
 
 # OBJ4: percorrer trajetos inventados ou propostos
 atinge_objetivo(Atividade, 'subcampo2_objetivo4') <= \
