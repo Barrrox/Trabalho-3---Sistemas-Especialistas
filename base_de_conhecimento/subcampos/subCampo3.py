@@ -21,7 +21,7 @@ atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= \
 atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= \
     promove_tipo_esforco(Atividade, 'fisico') 
 atividade_desenvolve_saber(Atividade, 'esquema_corporal') <= \
-    tem_caracteristica(Atividade, 'expressao_sensorial')
+    tem_caracteristica(Atividade, 'exploracao_sensorial')
 atividade_desenvolve_saber(Atividade, 'danca') <= \
     tem_caracteristica(Atividade, 'expressao_corporal') & \
     tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal')
@@ -48,7 +48,7 @@ atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
 # OBJ3: Deslocar-se de diferentes modos
 atinge_objetivo(Atividade, 'subcampo3_objetivo3') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    promove_tipo_esforco(Atividade, 'coordenaca_motora_ampla') & \
+    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') & \
     tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal')
     
 # OBJ4: Descobrir diferentes formas de exploracao e compartilhar com colegas

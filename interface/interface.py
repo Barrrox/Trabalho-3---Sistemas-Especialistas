@@ -21,6 +21,8 @@ from pyDatalog import pyDatalog as pyd
 from base_de_conhecimento.subcampos.subCampo1 import *
 from base_de_conhecimento.subcampos.subCampo2 import *
 from base_de_conhecimento.subcampos.subCampo3 import *
+from base_de_conhecimento.subcampos.subCampo4 import *
+from base_de_conhecimento.subcampos.subCampo5 import *
 # from base_de_conhecimento.subcampos.subCampo4 import * # from base_de_conhecimento.subcampos.subCampo5 import * from base_de_conhecimento.config_dados import DADOS_ESFORCO
 
 # =========================================================
@@ -225,7 +227,7 @@ class App(ctk.CTk):
             for tupla in objetivos:
                 s = tupla[0]
                 try:
-                    # Parse: subcampo2_objetivo3 -> sub=2, obj=3
+                    # Pega o numero: subcampo2_objetivo3 -> sub=2, obj=3
                     sub = int(s[8])
                     obj = int(s[-1])
                     if sub in res_dict: res_dict[sub].add(obj)

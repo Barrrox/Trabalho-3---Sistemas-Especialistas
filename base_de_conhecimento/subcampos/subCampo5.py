@@ -8,7 +8,7 @@ from base_de_conhecimento.variaveis_e_predicados import *
 # ==========================================
 
 atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG05') <= atividade_desenvolve_saber(Atividade, 'coordenacao_motora_fina')
-atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG05') <= atividade_desenvolve_saber(Atividade, 'suportes_materiais_instrumentos_desenhar_pintar_folhear')
+atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG05') <= atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear')
 
 
 # ==========================================

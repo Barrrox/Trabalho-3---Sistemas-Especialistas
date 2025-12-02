@@ -31,16 +31,16 @@ atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais') <= \
 
 # Orientação espacial
 atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= \
-    promove_tipo_esforco(Atividade, 'coordenacao_motoroa_ampla')
+    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
 atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= \
      tem_caracteristica(Atividade, 'jogos_de_tabuleiro')
 atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= \
      tem_caracteristica(Atividade, 'quebra_cabeca')
 
 # Grupos Sociais (família)
-atividade_desenvolve_saber(Atividade, 'grupos_sociais(familia)') <= \
+atividade_desenvolve_saber(Atividade, 'grupos_sociais_familia') <= \
      tem_caracteristica(Atividade, 'obedecer_regras')
-atividade_desenvolve_saber(Atividade, 'grupos_sociais(familia)') <= \
+atividade_desenvolve_saber(Atividade, 'grupos_sociais_familia') <= \
      tem_caracteristica(Atividade, 'socializacao')
     
 # Esquema corporal
