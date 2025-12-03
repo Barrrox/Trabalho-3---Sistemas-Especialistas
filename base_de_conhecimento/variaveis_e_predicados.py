@@ -93,13 +93,3 @@ Agora utilizam 'tem_caracteristica' para serem consistentes.
 # Exemplo: Cordas só é fina se usar as mãos (senão pode ser ampla/pular corda)
 promove_tipo_esforco(Atividade, 'coordenacao_motora_fina') <= \
     (tem_caracteristica(Atividade, 'cordas') & tem_caracteristica(Atividade, 'dedos_das_maos'))
-
-# Exemplo: Bolas com pés ou pernas é ampla (reforço, embora já esteja na lista geral)
-promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') <= \
-    tem_caracteristica(Atividade, 'bolas') & tem_caracteristica(Atividade, 'pes')
-
-promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') <= \
-    tem_caracteristica(Atividade, 'bolas') & tem_caracteristica(Atividade, 'pernas')
-
-promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') <= \
-    tem_caracteristica(Atividade, 'bolas') & tem_caracteristica(Atividade, 'corpo')
