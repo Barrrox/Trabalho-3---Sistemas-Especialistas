@@ -47,24 +47,48 @@ raiz/
 No terminal, na raiz do projeto:
 
 ```bash
-pip install pyDatalog customtkinter pyinstaller
+pip install pyDatalog customtkinter
+```
+
+Se quiser criar outro executável, baixe o pyinstaller:
+
+```bash
+pip install pyinstaller
 ```
 
 ### 2. Executar a Interface
-Para iniciar o sistema:
+
+*ATENÇÃO: É necessário estar na raiz do projeto para executá-lo*
+
+Há 3 formas de utilizar esse sistema. Primeiro, você pode executar a main para obter uma interface CLI. Essa interface foi utiliza inicialmente para testes e pode estar desatualizada. Utilize o comando:
+
+```bash
+python main.py
+```
+
+Você pode executar o códifo da interface com comando:
 
 ```bash
 python interface/interface.py
 ```
+
+E você também pode gerar um executável (que no fim das contas, vai executar interface.py também)
 
 ## Gerar Executável (.exe)
 
 Para compilar o projeto em um arquivo executável único para Windows:
 
 1. Abra o terminal na **raiz do projeto**.
-2. Comando que utilizei:
+2. Digite o comando para executar com os parâmetros que utilizamos:
+
+```bash
+pyinstaller SistemaEspecialista.spec
+```
+
+Ou pode mudar com o comando completo:
 
 ```bash
 pyinstaller --noconfirm --onefile --windowed --name "SistemaEspecialista" --add-data "base_de_conhecimento;base_de_conhecimento" --hidden-import "pyDatalog" interface/interface.py
 ```
+
 O arquivo final ```SistemaEspecialista.exe``` será gerado na pasta ```dist/```.
