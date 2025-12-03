@@ -23,7 +23,7 @@ from base_de_conhecimento.subcampos.subCampo2 import *
 from base_de_conhecimento.subcampos.subCampo3 import *
 from base_de_conhecimento.subcampos.subCampo4 import *
 from base_de_conhecimento.subcampos.subCampo5 import *
-# from base_de_conhecimento.subcampos.subCampo4 import * # from base_de_conhecimento.subcampos.subCampo5 import * from base_de_conhecimento.config_dados import DADOS_ESFORCO
+from base_de_conhecimento.config_dados import DADOS_ESFORCO
 
 # =========================================================
 # LÓGICA DO SISTEMA
@@ -57,19 +57,29 @@ class App(ctk.CTk):
 
         # Configuração da Janela
         self.title("Sistema Especialista - Educação Infantil")
-        self.geometry("900x750")
+        self.geometry("900x800")
         
         # Inicializa Lógica
         inicializar_pydatalog()
         
-        # --- LAYOUT PRINCIPAL DIVIDIDO EM DOIS ---
-        # 1. Frame Superior (Rolável): Inputs e Botões
-        self.scroll_frame = ctk.CTkScrollableFrame(self, label_text="Formulário de Atividade")
-        self.scroll_frame.pack(side="top", fill="both", expand=True, padx=10, pady=(10, 5))
+        # --- ESTRUTURA DE LAYOUT ---
+        # Ordem de empacotamento (pack) é importante aqui
+        # Queremos:
+        # 1. Resultados (Fixo no fundo)
+        # 2. Botões (Fixo acima dos resultados)
+        # 3. Formulário (Restante do espaço no topo, rolável)
 
-        # 2. Frame Inferior (Fixo): Resultados
+        # 1. Frame Inferior (Resultados - Fixo)
         self.frame_resultados = ctk.CTkFrame(self)
         self.frame_resultados.pack(side="bottom", fill="x", padx=10, pady=(5, 10))
+
+        # 2. Frame de Botões (Ações - Fixo)
+        self.frame_botoes = ctk.CTkFrame(self, fg_color="transparent")
+        self.frame_botoes.pack(side="bottom", fill="x", padx=20, pady=(10, 5))
+
+        # 3. Frame Superior (Formulário - Rolável e Expansível)
+        self.scroll_frame = ctk.CTkScrollableFrame(self, label_text="Formulário de Atividade")
+        self.scroll_frame.pack(side="top", fill="both", expand=True, padx=10, pady=10)
 
         # Dicionário para guardar as checkboxes e seus valores
         self.checkboxes = {
@@ -79,17 +89,14 @@ class App(ctk.CTk):
             'metas': []
         }
 
-        # --- CRIAÇÃO DAS SEÇÕES ---
+        # PREENCHIMENTO DO FORMULÁRIO
         self.add_section("1. Onde a atividade foi realizada?", 'ambientes')
         self.add_section("2. Quais materiais foram utilizados?", 'materiais')
         self.add_section("3. Quais partes do corpo foram usadas?", 'partes_do_corpo', key_storage='corpo')
         self.add_section("4. Quais metas foram estimuladas?", 'metas_promovidas', key_storage='metas')
 
-        # --- BOTÕES DE AÇÃO ---
-        # Container para os botões ficarem lado a lado
-        self.frame_botoes = ctk.CTkFrame(self.scroll_frame, fg_color="transparent")
-        self.frame_botoes.pack(pady=30, fill="x", padx=20)
-
+        # BOTÕES DE AÇÃO 
+        
         # Botão Limpar / Nova Consulta
         self.btn_limpar = ctk.CTkButton(
             self.frame_botoes, 
@@ -147,7 +154,6 @@ class App(ctk.CTk):
     def limpar_memoria_pydatalog(self, atividade_id):
         """
         Remove fatos antigos da memória do pyDatalog para evitar conflitos.
-        Itera sobre todas as opções possíveis e 'retrai' (-) o fato se ele existir.
         """
         # Limpa ambientes
         for item in obter_opcoes_unicas('ambientes'):
@@ -185,8 +191,7 @@ class App(ctk.CTk):
     def analisar_resultados(self):
         atividade_atual = 'atividade_usuario'
         
-        # 1. LIMPEZA DE SEGURANÇA
-        # Garante que não haja lixo de cliques anteriores se o usuário não clicou em "Nova Consulta"
+        # 1. Limpeze por segurança
         self.limpar_memoria_pydatalog(atividade_atual)
         
         # 2. Coletar Inputs
@@ -199,7 +204,6 @@ class App(ctk.CTk):
                     selecoes[categoria].append(item['valor_real'])
                     algum_selecionado = True
         
-        # Feedback rápido se nada foi selecionado
         if not algum_selecionado:
             self.textbox_resultado.configure(state="normal")
             self.textbox_resultado.delete("0.0", "end")
