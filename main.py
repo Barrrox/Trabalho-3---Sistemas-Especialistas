@@ -164,15 +164,25 @@ def iniciar_consulta():
         subcampo_objetivo_str = tupla_obj[0] # Extrai a string da tupla
         
         try:
-            # Lógica de parsing solicitada: índice 8 para subcampo, último char para objetivo
-            subcampo = int(subcampo_objetivo_str[8]) 
-            objetivo = int(subcampo_objetivo_str[-1])
+            # Divide a string em duas partes usando o '_' como separador
+            # Ex: ['subcampo1', 'objetivo19']
+            partes = subcampo_objetivo_str.split('_')
+
+            # Parte 1: Remove a palavra 'subcampo' e converte o resto para int
+            # Ex: 'subcampo1' -> '1' -> 1
+            subcampo_str = partes[0].replace('subcampo', '')
+            subcampo = int(subcampo_str)
+
+            # Parte 2: Remove a palavra 'objetivo' e converte o resto para int
+            # Ex: 'objetivo19' -> '19' -> 19
+            objetivo_str = partes[1].replace('objetivo', '')
+            objetivo = int(objetivo_str)
             
             if subcampo in resultados:
                 resultados[subcampo].add(objetivo)
         except (IndexError, ValueError):
-            # Caso a string do objetivo não esteja no formato esperado (ex: muito curta)
-            print("Erro no parsing da string subcampo_objetivo")
+            # caso string no formato errado
+            print(f"Erro ao processar o item: {subcampo_objetivo_str}")
             continue
 
     print("Resultados Classificados:\n")
