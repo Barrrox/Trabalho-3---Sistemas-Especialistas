@@ -62,8 +62,6 @@ atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
 atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
     tem_caracteristica(Atividade, 'exploracao_sensorial')
 
-# ...
-
 # ==========================================
 # Regras específicas para objetivos do subcampo
 # ==========================================
@@ -71,14 +69,6 @@ atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
 """
 ❖ 
 ❖ 
-❖ 
-❖ 
-❖ 
-❖ .
-❖ .
-❖ .
-❖ 9 Reconhecer texturas, formatos e tamanhos por meio da exploração de objetos.
-❖ 10 Reconhecer diferentes temperaturas, por meio da experimentação.
 ❖ Explorar seu corpo e o corpo do outro, por meio do toque.
 ❖ Perceber diferentes sabores por meio da experimentação de diversos tipos de alimentos, com diferentes texturas.
 ❖ Reconhecer alimentos com diferentes sabores.
@@ -102,7 +92,6 @@ acolhimento.
 ❖ Participar de atividades que desenvolvam o chutar,
 pegar, manusear, mover e transportar objetos com
 diferentes características.
-
 """
 # OBJ1: Participar de brincadeiras com cantigas, rimas, histórias,
 # parlendas ou outras situações que envolvam movimentos corporais.
@@ -153,15 +142,83 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo7') <= \
     tem_caracteristica(Atividade, 'olhos') & \
     atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos')
 
-# OBJ8: Identificar, por meio de expressões e da linguagem, alguns sons presentes
-# em seu cotidiano
+# OBJ8: Identificar, por meio de expressões e da linguagem, alguns sons presentes em seu cotidiano
+atinge_objetivo(Atividade, 'subcampo1_objetivo8') <= \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
+    tem_caracteristica(Atividade, 'ouvidos')
 
+# OBJ9: Reconhecer texturas, formatos e tamanhos por meio da exploração de objetos.
+atinge_objetivo(Atividade, 'subcampo1_objetivo9') <= \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
+    tem_caracteristica(Atividade, 'maos') & \
+    tem_caracteristica(Atividade, 'exploracao_sensorial')
 
-    
+# OBJ10: Reconhecer diferentes temperaturas, por meio da experimentação.
+atinge_objetivo(Atividade, 'subcampo1_objetivo10') <= \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
+    tem_caracteristica(Atividade, 'agua')
+atinge_objetivo(Atividade, 'subcampo1_objetivo10') <= \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
+    tem_caracteristica(Atividade, 'areia')
 
+# OBJ11: Explorar seu corpo e o corpo do outro, por meio do toque.
+atinge_objetivo(Atividade, 'subcampo1_objetivo11') <= \
+    atividade_desenvolve_saber(Atividade, 'esquema_corporal') & \
+    tem_caracteristica(Atividade, 'maos') & \
+    tem_caracteristica(Atividade, 'socializacao')
 
+# OBJ12: Perceber diferentes sabores por meio da experimentação de diversos tipos de alimentos, com diferentes texturas.
+atinge_objetivo(Atividade, 'subcampo1_objetivo12') <= \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
+    tem_caracteristica(Atividade, 'boca')
+atinge_objetivo(Atividade, 'subcampo1_objetivo12') <= \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
+    tem_caracteristica(Atividade, 'comida')
 
+# OBJ13: Reconhecer alimentos com diferentes sabores.
+atinge_objetivo(Atividade, 'subcampo1_objetivo13') <= \
+    atinge_objetivo(Atividade, 'subcampo1_objetivo12') # Eh a mesma coisa
 
+# OBJ14: Desenvolver a percepção olfativa, sentindo diferentes odores.
+atinge_objetivo(Atividade, 'subcampo1_objetivo14') <= \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
+    tem_caracteristica(Atividade, 'nariz')
 
+# OBJ15: Explorar o próprio corpo na perspectiva de conhecê-lo, sentindo os seus movimentos, 
+# ouvindo seus barulhos, conhecendo suas funções.
+atinge_objetivo(Atividade, 'subcampo1_objetivo15') <= \
+    atividade_desenvolve_saber(Atividade, 'esquema_corporal') & \
+    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos')
 
+# OBJ16: Conhecer e apontar partes do seu corpo e mostrar a correspondência destas em seus colegas 
+# (cabeça, dente, olho, boca, cabelo, unha, dedo, nariz, mão, pé, pescoço, umbigo, joelho, dentre outros).
+atinge_objetivo(Atividade, 'subcampo1_objetivo16') <= \
+    atividade_desenvolve_saber(Atividade, 'esquema_corporal') & \
+    tem_caracteristica(Atividade, 'socializacao') & \
+    usa_parte_do_corpo(Atividade, ParteDoCorpo)
 
+# OBJ17: Vivenciar brincadeiras de esquema corporal, de exploração e expressão diante do espelho, 
+# utilizando as diferentes formas de linguagens e percebendo suas características.
+atinge_objetivo(Atividade, 'subcampo1_objetivo17') <= \
+    atividade_desenvolve_saber(Atividade, 'esquema_corporal') & \
+    tem_caracteristica(Atividade, 'expressao_corporal')
+
+# OBJ18: Observar e imitar gestos e movimentos típicos dos profissionais da escola e de sua comunidade próxima.
+atinge_objetivo(Atividade, 'subcampo1_objetivo18') <= \
+    atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais') & \
+    tem_caracteristica(Atividade, 'imaginacao')
+
+# OBJ19: Expressar, por meio do corpo, de seus gestos e movimentos, confortos e desconfortos.
+atinge_objetivo(Atividade, 'subcampo1_objetivo19') <= \
+    tem_caracteristica(Atividade, 'expressao_corporal') & \
+    atividade_desenvolve_saber(Atividade, 'grupos_sociais_familia')
+
+# OBJ20: Perceber o desconforto do colega e oferecer-lhe acolhimento.
+atinge_objetivo(Atividade, 'subcampo1_objetivo20') <= \
+    tem_caracteristica(Atividade, 'socializacao')
+
+# OBJ21: Participar de atividades que desenvolvam o chutar, pegar, manusear, mover e transportar 
+# objetos com diferentes características.
+atinge_objetivo(Atividade, 'subcampo1_objetivo21') <= \
+    atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla') & \
+    promove_tipo_esforco(Atividade, 'coordenacao_motora_fina')
