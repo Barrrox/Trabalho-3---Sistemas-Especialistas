@@ -73,8 +73,6 @@ def exibir_menu_e_selecionar(titulo, lista_opcoes):
     return selecionados
 
 def iniciar_consulta():
-    # Inicializa variáveis do PyDatalog
-    pyd.create_terms('Y')
     atividade_atual = 'atividade_usuario'
 
     # O pyDatalog falha se um predicado usado em regras não tiver NENHUM fato.
@@ -153,7 +151,7 @@ def iniciar_consulta():
         return
 
     # ---------------------------------------------------------
-    # 4. VISUALIZAÇÃO COM NOVA LÓGICA (DICIONÁRIO)
+    # 4. VISUALIZAÇÃO
     # ---------------------------------------------------------
 
     # Cria dicionário para guardar os resultados: Chave = Subcampo (int), Valor = Set de Objetivos (int)
@@ -174,6 +172,7 @@ def iniciar_consulta():
                 resultados[subcampo].add(objetivo)
         except (IndexError, ValueError):
             # Caso a string do objetivo não esteja no formato esperado (ex: muito curta)
+            print("Erro no parsing da string subcampo_objetivo")
             continue
 
     print("Resultados Classificados:\n")
