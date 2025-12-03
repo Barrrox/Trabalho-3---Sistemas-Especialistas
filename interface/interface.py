@@ -228,12 +228,24 @@ class App(ctk.CTk):
             self.textbox_resultado.insert("0.0", ">> Nenhuma classificação encontrada para essa combinação.")
         else:
             res_dict = {i+1 : set() for i in range(5)}
-            for tupla in objetivos:
-                s = tupla[0]
+            for tupla in objetivos:                
+                subcampo_objetivo_str = tupla[0]
+
                 try:
-                    # Pega o numero: subcampo2_objetivo3 -> sub=2, obj=3
-                    sub = int(s[8])
-                    obj = int(s[-1])
+                    # Divide a string em duas partes usando o '_' como separador
+                    # Ex: ['subcampo1', 'objetivo19']
+                    partes = subcampo_objetivo_str.split('_')
+                    
+                    # Parte 1: Remove a palavra 'subcampo' e converte o resto para int
+                    # Ex: 'subcampo1' -> '1' -> 1
+                    subcampo_str = partes[0].replace('subcampo', '')
+                    sub = int(subcampo_str)
+
+                    # Parte 2: Remove a palavra 'objetivo' e converte o resto para int
+                    # Ex: 'objetivo19' -> '19' -> 19
+                    objetivo_str = partes[1].replace('objetivo', '')
+                    obj = int(objetivo_str)
+                                        
                     if sub in res_dict: res_dict[sub].add(obj)
                 except: continue
 
