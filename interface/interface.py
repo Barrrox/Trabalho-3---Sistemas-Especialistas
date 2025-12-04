@@ -228,13 +228,14 @@ class App(ctk.CTk):
             self.textbox_resultado.insert("0.0", ">> Nenhuma classificação encontrada para essa combinação.")
         else:
             
+            
             resultados_dict = {i+1 : set() for i in range(5)}
             
             for tupla in objetivos_atingidos:                
                 codigo_objetivo_completo = tupla[0] # Ex: 'subcampo1_objetivo14'
 
                 try:
-                    # Extrai o número do subcampo
+                    # Extrai o número do subcampo e converte para int
                     subcampo_str = codigo_objetivo_completo.split('_')[0].replace('subcampo', '')
                     subcampo = int(subcampo_str)
                                         
@@ -246,16 +247,16 @@ class App(ctk.CTk):
                     continue 
 
             texto_final = ""
-            found = False
-            for num_sub, codigos_objs in resultados_dict.items():
+            found = False # ta em ingles porque la em baixo fica if not found kkkk
+            for numero_subcampo, codigos_objs in resultados_dict.items():
                 if codigos_objs:
                     found = True
                     
                     # Obtém a descrição completa do subcampo
-                    descricao_subcampo = SUBCAMPOS_COMPLETOS.get(num_sub, f"Subcampo {num_sub} (Descrição não encontrada)")
+                    descricao_subcampo = SUBCAMPOS_COMPLETOS.get(numero_subcampo, f"Subcampo {numero_subcampo} (Descrição não encontrada)")
                     
                     texto_final += f"📂 {descricao_subcampo}\n"
-                    # Classifica para garantir que a ordem seja subcampoX_objetivoY
+                    # Classifica para garantir que fique na ordem
                     sorted_codigos = sorted(list(codigos_objs)) 
                     
                     for i, codigo in enumerate(sorted_codigos):

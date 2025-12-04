@@ -60,7 +60,7 @@ pip install pyinstaller
 
 *ATENÇÃO: É necessário estar na raiz do projeto para executá-lo*
 
-Há 3 formas de utilizar esse sistema. Primeiro, você pode executar a main para obter uma interface CLI. Essa interface foi utiliza inicialmente para testes e pode estar desatualizada. Utilize o comando:
+Há 3 formas de utilizar esse sistema. Primeiro, você pode executar a main para obter uma interface CLI. Essa interface foi utiliza inicialmente para testes e provavelmente estará desatualizada em relação à interface iterativa. Utilize o comando:
 
 ```bash
 python main.py
