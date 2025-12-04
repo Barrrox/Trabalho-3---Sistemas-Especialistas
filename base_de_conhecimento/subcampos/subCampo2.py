@@ -41,8 +41,6 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo1') <= \
 
 # OBJ2: Localizar e buscar brinquedo
 atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
-    atividade_desenvolve_saber(Atividade, 'nocoes_espaciais')
-atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
     tem_caracteristica(Atividade, 'pecas_de_encaixe')
 atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
     tem_caracteristica(Atividade, 'quebra_cabeca')
