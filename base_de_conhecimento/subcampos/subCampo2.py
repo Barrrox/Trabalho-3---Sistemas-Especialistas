@@ -26,8 +26,6 @@ atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= \
 atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
     tem_caracteristica(Atividade, 'organizacao_de_objetos')
 atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
-    tem_caracteristica(Atividade, 'obedecer_regras')
-atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
     promove_tipo_esforco(Atividade, 'logico')
 atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= \
     tem_caracteristica(Atividade, 'autonomia_nas_tarefas')
@@ -44,6 +42,18 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo1') <= \
 # OBJ2: Localizar e buscar brinquedo
 atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'nocoes_espaciais')
+atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
+    tem_caracteristica(Atividade, 'pecas_de_encaixe')
+atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
+    tem_caracteristica(Atividade, 'quebra_cabeca')
+atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
+    tem_caracteristica(Atividade, 'carrinhos')
+atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
+    tem_caracteristica(Atividade, 'bolas')
+atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
+    tem_caracteristica(Atividade, 'jogos_de_tabuleiro')
+atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
+    tem_caracteristica(Atividade, 'blocos_de_montar')
 
 # OBJ3: Exploracoes com diferentes perspectivas
 atinge_objetivo(Atividade, 'subcampo2_objetivo3') <= \
