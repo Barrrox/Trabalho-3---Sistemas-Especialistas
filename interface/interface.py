@@ -23,7 +23,7 @@ from base_de_conhecimento.subcampos.subCampo2 import *
 from base_de_conhecimento.subcampos.subCampo3 import *
 from base_de_conhecimento.subcampos.subCampo4 import *
 from base_de_conhecimento.subcampos.subCampo5 import *
-from base_de_conhecimento.config_dados import DADOS_ESFORCO
+from base_de_conhecimento.config_dados import DADOS_ESFORCO, OBJETIVOS_COMPLETOS 
 
 # =========================================================
 # LÓGICA DO SISTEMA
@@ -218,47 +218,51 @@ class App(ctk.CTk):
         for item in selecoes['metas']: + promove_a_meta(atividade_atual, item)
 
         # 4. Consultar
-        objetivos = atinge_objetivo(atividade_atual, Y)
+        objetivos_atingidos = atinge_objetivo(atividade_atual, Y)
 
         # 5. Formatar Saída
         self.textbox_resultado.configure(state="normal")
         self.textbox_resultado.delete("0.0", "end")
         
-        if not objetivos:
+        if not objetivos_atingidos:
             self.textbox_resultado.insert("0.0", ">> Nenhuma classificação encontrada para essa combinação.")
         else:
-            res_dict = {i+1 : set() for i in range(5)}
-            for tupla in objetivos:                
-                subcampo_objetivo_str = tupla[0]
+            
+            resultados_dict = {i+1 : set() for i in range(5)}
+            
+            for tupla in objetivos_atingidos:                
+                codigo_objetivo_completo = tupla[0] # Ex: 'subcampo1_objetivo14'
 
                 try:
-                    # Divide a string em duas partes usando o '_' como separador
-                    # Ex: ['subcampo1', 'objetivo19']
-                    partes = subcampo_objetivo_str.split('_')
-                    
-                    # Parte 1: Remove a palavra 'subcampo' e converte o resto para int
-                    # Ex: 'subcampo1' -> '1' -> 1
-                    subcampo_str = partes[0].replace('subcampo', '')
-                    sub = int(subcampo_str)
-
-                    # Parte 2: Remove a palavra 'objetivo' e converte o resto para int
-                    # Ex: 'objetivo19' -> '19' -> 19
-                    objetivo_str = partes[1].replace('objetivo', '')
-                    obj = int(objetivo_str)
+                    # Extrai o número do subcampo
+                    subcampo_str = codigo_objetivo_completo.split('_')[0].replace('subcampo', '')
+                    subcampo = int(subcampo_str)
                                         
-                    if sub in res_dict: res_dict[sub].add(obj)
-                except: continue
+                    if subcampo in resultados_dict: 
+                        # Adiciona o código completo (ex: 'subcampo1_objetivo19')
+                        resultados_dict[subcampo].add(codigo_objetivo_completo)
+                except: 
+                    # Ignora tuplas que não seguem o padrão esperado
+                    continue 
 
             texto_final = ""
             found = False
-            for num_sub, objs in res_dict.items():
-                if objs:
+            for num_sub, codigos_objs in resultados_dict.items():
+                if codigos_objs:
                     found = True
                     texto_final += f"📂 Subcampo {num_sub}\n"
-                    sorted_objs = sorted(list(objs))
-                    for i, o in enumerate(sorted_objs):
-                        conector = "└──" if i == len(sorted_objs)-1 else "├──"
-                        texto_final += f"   {conector} Objetivo {o}\n"
+                    # Classifica para garantir que a ordem seja subcampoX_objetivoY
+                    sorted_codigos = sorted(list(codigos_objs)) 
+                    
+                    for i, codigo in enumerate(sorted_codigos):
+                        conector = "└──" if i == len(sorted_codigos)-1 else "├──"
+                        
+                        # Obtém a descrição completa do objetivo
+                        descricao_objetivo = OBJETIVOS_COMPLETOS.get(codigo, f"Objetivo {codigo.split('_')[-1].replace('objetivo', '')} (Descrição não encontrada)")
+                        
+                        # Formata a saída
+                        texto_final += f"   {conector} {descricao_objetivo}\n"
+                        
                     texto_final += "\n"
             
             if not found:
