@@ -93,14 +93,14 @@ class App(ctk.CTk):
         self.add_section("1. Onde a atividade foi realizada?", 'ambientes')
         self.add_section("2. Quais materiais foram utilizados?", 'materiais')
         self.add_section("3. Quais partes do corpo foram usadas?", 'partes_do_corpo', key_storage='corpo')
-        self.add_section("4. Quais metas foram estimuladas?", 'metas_promovidas', key_storage='metas')
+        self.add_section("4. Quais os objetivos da atividade?", 'metas_promovidas', key_storage='metas')
 
         # BOTÕES DE AÇÃO 
         
         # Botão Limpar / Nova Consulta
         self.btn_limpar = ctk.CTkButton(
             self.frame_botoes, 
-            text="NOVA CONSULTA", 
+            text="LIMPAR SELEÇÕES", 
             height=50,
             fg_color="#555555",
             hover_color="#333333",
@@ -112,7 +112,7 @@ class App(ctk.CTk):
         # Botão Analisar
         self.btn_analisar = ctk.CTkButton(
             self.frame_botoes, 
-            text="VER RESULTADOS", 
+            text="DESCOBRIR OBJETIVOS", 
             height=50,
             fg_color="#2CC985",
             hover_color="#229A66",
@@ -127,7 +127,7 @@ class App(ctk.CTk):
 
         self.textbox_resultado = ctk.CTkTextbox(self.frame_resultados, height=200, font=("Consolas", 14))
         self.textbox_resultado.pack(fill="x", padx=10, pady=(0, 10))
-        self.textbox_resultado.insert("0.0", "Preencha o formulário acima e clique em 'Ver Resultados'.")
+        self.textbox_resultado.insert("0.0", "Preencha o formulário acima e clique em 'Descobrir Objetivos'.")
         self.textbox_resultado.configure(state="disabled")
 
     def add_section(self, titulo, chave_dados, key_storage=None):
