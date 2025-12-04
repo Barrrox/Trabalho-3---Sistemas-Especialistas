@@ -113,6 +113,20 @@ DADOS_ESFORCO = {
 }
 
 # =========================================================
+# Mapeamento de Códigos de Subcampo para Descrição Completa
+# (Extraído dos comentários iniciais de subCampoX.py)
+# =========================================================
+
+SUBCAMPOS_COMPLETOS = {
+    # Número do Subcampo : Descrição completa
+    1: 'EI02/03CG01: Apropriar-se de gestos e movimentos de sua cultura no cuidado de si e nos jogos e brincadeiras.',
+    2: 'EI02/03CG02: Deslocar seu corpo no espaço, orientando-se por noções como em frente, atrás, no alto, embaixo, dentro, fora etc., ao se envolver em brincadeiras e atividades de diferentes naturezas.',
+    3: 'EI02/03CG03: Explorar formas de deslocamento no espaço (pular, saltar, dançar), combinando movimentos e seguindo orientações.',
+    4: 'EI02/03CG04: Demonstrar progressiva independência no cuidado do seu corpo.',
+    5: 'EI02/03CG05: Desenvolver progressivamente as habilidades manuais, adquirindo controle para desenhar, pintar, rasgar, folhear, entre outros.',
+}
+
+# =========================================================
 # Códigos de Objetivos para Descrição Completa
 # =========================================================
 

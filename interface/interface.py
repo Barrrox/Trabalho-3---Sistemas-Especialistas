@@ -23,7 +23,7 @@ from base_de_conhecimento.subcampos.subCampo2 import *
 from base_de_conhecimento.subcampos.subCampo3 import *
 from base_de_conhecimento.subcampos.subCampo4 import *
 from base_de_conhecimento.subcampos.subCampo5 import *
-from base_de_conhecimento.config_dados import DADOS_ESFORCO, OBJETIVOS_COMPLETOS 
+from base_de_conhecimento.config_dados import DADOS_ESFORCO, OBJETIVOS_COMPLETOS, SUBCAMPOS_COMPLETOS 
 
 # =========================================================
 # LÓGICA DO SISTEMA
@@ -250,7 +250,11 @@ class App(ctk.CTk):
             for num_sub, codigos_objs in resultados_dict.items():
                 if codigos_objs:
                     found = True
-                    texto_final += f"📂 Subcampo {num_sub}\n"
+                    
+                    # Obtém a descrição completa do subcampo
+                    descricao_subcampo = SUBCAMPOS_COMPLETOS.get(num_sub, f"Subcampo {num_sub} (Descrição não encontrada)")
+                    
+                    texto_final += f"📂 {descricao_subcampo}\n"
                     # Classifica para garantir que a ordem seja subcampoX_objetivoY
                     sorted_codigos = sorted(list(codigos_objs)) 
                     
