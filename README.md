@@ -50,7 +50,7 @@ No terminal, na raiz do projeto:
 pip install pyDatalog customtkinter
 ```
 
-Se quiser criar outro executável, baixe o pyinstaller:
+Para criar um arquivo executável do sistema, baixe o pyinstaller:
 
 ```bash
 pip install pyinstaller
@@ -66,7 +66,7 @@ Há 3 formas de utilizar esse sistema. Primeiro, você pode executar a main para
 python main.py
 ```
 
-Você pode executar o códifo da interface com comando:
+Você pode executar o código da interface com comando:
 
 ```bash
 python interface/interface.py
