@@ -182,7 +182,7 @@ class App(ctk.CTk):
         # 2. Limpar Caixa de Texto (Interface)
         self.textbox_resultado.configure(state="normal")
         self.textbox_resultado.delete("0.0", "end")
-        self.textbox_resultado.insert("0.0", "Nova consulta iniciada. Aguardando dados...")
+        self.textbox_resultado.insert("0.0", "Preencha o formulário acima e clique em 'Descobrir Objetivos'.")
         self.textbox_resultado.configure(state="disabled")
 
         # 3. Limpar Memória Lógica (pyDatalog)
