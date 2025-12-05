@@ -43,19 +43,19 @@ atinge_objetivo(Atividade, 'subcampo3_objetivo1') <= \
 # OBJ2: Explorar mais em maiores espacos com variedade de movimentos
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    tem_caraceristica(Atividade, 'parquinho')
+    tem_caracteristica(Atividade, 'parquinho')
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    tem_caraceristica(Atividade, 'gramado')
+    tem_caracteristica(Atividade, 'gramado')
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    tem_caraceristica(Atividade, 'patio_descoberto')
+    tem_caracteristica(Atividade, 'patio_descoberto')
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    tem_caraceristica(Atividade, 'parquinho_de_areia')
+    tem_caracteristica(Atividade, 'parquinho_de_areia')
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    tem_caraceristica(Atividade, 'saguao_coberto')
+    tem_caracteristica(Atividade, 'saguao_coberto')
 
 # OBJ3: Deslocar-se de diferentes modos
 atinge_objetivo(Atividade, 'subcampo3_objetivo3') <= \
