@@ -43,7 +43,19 @@ atinge_objetivo(Atividade, 'subcampo3_objetivo1') <= \
 # OBJ2: Explorar mais em maiores espacos com variedade de movimentos
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
+    tem_caraceristica(Atividade, 'parquinho')
+atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
+    atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
+    tem_caraceristica(Atividade, 'gramado')
+atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
+    atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
+    tem_caraceristica(Atividade, 'patio_descoberto')
+atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
+    atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
+    tem_caraceristica(Atividade, 'parquinho_de_areia')
+atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
+    atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
+    tem_caraceristica(Atividade, 'saguao_coberto')
 
 # OBJ3: Deslocar-se de diferentes modos
 atinge_objetivo(Atividade, 'subcampo3_objetivo3') <= \
@@ -77,8 +89,15 @@ atinge_objetivo(Atividade, 'subcampo3_objetivo8') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
     promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') & \
     tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal')
+atinge_objetivo(Atividade, 'subcampo3_objetivo8') <= \
+    tem_caracteristica(Atividade, 'bamboles')
+atinge_objetivo(Atividade, 'subcampo3_objetivo8') <= \
+    tem_caracteristica(Atividade, 'cones_de_marcacao')
+atinge_objetivo(Atividade, 'subcampo3_objetivo8') <= \
+    tem_caracteristica(Atividade, 'cordas')
 
 # OBJ9: Participar de jogos de imitacao
 atinge_objetivo(Atividade, 'subcampo3_objetivo9') <= \
     atividade_desenvolve_saber(Atividade, 'imitacao_como_expressao') & \
-    tem_caracteristica(Atividade, 'socializacao')
+    tem_caracteristica(Atividade, 'socializacao') & \
+    tem_caracteristica(Atividade, 'reconhecimento_de_padroes')
