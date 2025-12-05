@@ -3,10 +3,10 @@
 **Disciplina:** Inteligência Artificial - Trabalho 3 (Sistemas Especialistas)
 
 ### Autores
-* **Nome do Autor 1** ([@usuario_github](https://github.com/usuario))
-* **Nome do Autor 2** ([@usuario_github](https://github.com/usuario))
-* **Nome do Autor 3** ([@usuario_github](https://github.com/usuario))
-* **Nome do Autor 4** ([@usuario_github](https://github.com/usuario))
+* **Ellen Christini Schreiber Brzozoski** ([@EllenCandy](https://github.com/EllenCandy))
+* **Lóra Leonarda Lívero Lavaqui** ([@LoraLeonarda](https://github.com/LoraLeonarda))
+* **João Vitor da Silva** ([@JonSiruva](https://github.com/JonSiruva))
+* **Matheus Barros** ([@barrrox](https://github.com/barrrox))
 
 ---
 
