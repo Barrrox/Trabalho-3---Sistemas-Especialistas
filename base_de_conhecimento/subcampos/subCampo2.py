@@ -21,8 +21,7 @@ atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= \
     tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal') & \
     tem_caracteristica(Atividade, 'expressao_corporal')
 atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= \
-    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla') & \
-    promove_tipo_esforco(Atividade, 'fisico')
+    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
 atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
     tem_caracteristica(Atividade, 'organizacao_de_objetos')
 atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
@@ -52,6 +51,8 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
     tem_caracteristica(Atividade, 'jogos_de_tabuleiro')
 atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
     tem_caracteristica(Atividade, 'blocos_de_montar')
+atinge_objetivo(Atividade, 'subcampo2_objetivo2') <= \
+    tem_caracteristica(Atividade, 'bonecas')
 
 # OBJ3: Exploracoes com diferentes perspectivas
 atinge_objetivo(Atividade, 'subcampo2_objetivo3') <= \
@@ -61,17 +62,20 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo3') <= \
 # OBJ4: percorrer trajetos inventados ou propostos
 atinge_objetivo(Atividade, 'subcampo2_objetivo4') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') & \
-    atividade_desenvolve_saber(Atividade, 'nocoes_espaciais')
+    atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') & \
+    tem_caracteristica(Atividade, 'obedecer_regras')
 
 # OBJ5: Reconhecer local com pertences pessoais
 atinge_objetivo(Atividade, 'subcampo2_objetivo5') <= \
     atividade_desenvolve_saber(Atividade, 'orientacao_espacial') & \
-    tem_caracteristica(Atividade, 'autonomia_nas_tarefas')
+    tem_caracteristica(Atividade, 'autonomia_nas_tarefas') & \
+    usa_material(Atividade, 'objetos_pessoais')
 
 # OBJ6: Observar e imitar colegas na exploracao
 atinge_objetivo(Atividade, 'subcampo2_objetivo6') <= \
     atividade_desenvolve_saber(Atividade, 'orientacao_espacial') & \
-    tem_caracteristica(Atividade, 'socializacao')
+    tem_caracteristica(Atividade, 'socializacao') & \
+    tem_caracteristica(Atividade, 'reconhecimento_de_padroes')
 
 # OBJ7: Participar de situações com comandos
 atinge_objetivo(Atividade, 'subcampo2_objetivo7') <= \
@@ -84,4 +88,5 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo8') <= \
 
 # OBJ9: Participar de situacoes que o professor demonstra localizao de objetos
 atinge_objetivo(Atividade, 'subcampo2_objetivo9') <= \
-    atividade_desenvolve_saber(Atividade, 'orientacao_espacial')
+    atividade_desenvolve_saber(Atividade, 'orientacao_espacial') & \
+    tem_caracteristica(Atividade, 'obedecer_regras')
