@@ -20,8 +20,7 @@ atividade_desenvolve_saber(Atividade, 'praticas_sociais_relativas_a_higiene') <=
     usa_material(Atividade, 'utensilios_de_higiene') & \
     tem_caracteristica(Atividade, 'obedecer_regras')
 atividade_desenvolve_saber(Atividade, 'materiais_uso_pessoal') <= \
-    usa_material(Atividade, 'utensilios_de_higiene') & \
-    tem_caracteristica(Atividade, 'organizacao_de_objetos')
+    usa_material(Atividade, 'objetos_pessoais')
 atividade_desenvolve_saber(Atividade, 'habitos_alimentares_de_higiene_e_repouso') <= \
     usa_material(Atividade, 'utensilios_de_higiene') & \
     usa_material(Atividade, 'comida') & \
@@ -81,7 +80,6 @@ atinge_objetivo(Atividade, 'subcampo4_objetivo7') <= \
 
 # OBJ8: Conhecer o material de uso pessoal
 atinge_objetivo(Atividade, 'subcampo4_objetivo8') <= \
-    usa_material(Atividade, 'utensilios_de_higiene') & \
     atividade_desenvolve_saber(Atividade, 'materiais_uso_pessoal') & \
     tem_caracteristica(Atividade, 'organizacao_de_objetos')
 
