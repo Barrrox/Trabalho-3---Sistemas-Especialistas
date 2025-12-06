@@ -18,15 +18,12 @@ atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG03') <= atividade_desenvolve
 
 atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= \
     promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
-atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') <= \
-    promove_tipo_esforco(Atividade, 'fisico') 
 atividade_desenvolve_saber(Atividade, 'esquema_corporal') <= \
     tem_caracteristica(Atividade, 'exploracao_sensorial')
 atividade_desenvolve_saber(Atividade, 'danca') <= \
     tem_caracteristica(Atividade, 'expressao_corporal') & \
-    tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal')
-atividade_desenvolve_saber(Atividade, 'imitacao_como_expressao') <= \
-    tem_caracteristica(Atividade, 'socializacao')
+    tem_caracteristica(Atividade, 'equilibrio_e_controle_corporal') & \
+    usa_material(Atividade, 'musicas')
 atividade_desenvolve_saber(Atividade, 'imitacao_como_expressao') <= \
     tem_caracteristica(Atividade, 'expressao_corporal') & \
     tem_caracteristica(Atividade, 'reconhecimento_de_padroes')
@@ -49,13 +46,16 @@ atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     tem_caracteristica(Atividade, 'gramado')
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    tem_caracteristica(Atividade, 'patio_descoberto')
+    tem_caracteristica(Atividade, 'patio')
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
     tem_caracteristica(Atividade, 'parquinho_de_areia')
 atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
-    tem_caracteristica(Atividade, 'saguao_coberto')
+    tem_caracteristica(Atividade, 'saguao')
+atinge_objetivo(Atividade, 'subcampo3_objetivo2') <= \
+    atividade_desenvolve_saber(Atividade, 'corpo_e_movimentos') & \
+    tem_caracteristica(Atividade, 'sala')
 
 # OBJ3: Deslocar-se de diferentes modos
 atinge_objetivo(Atividade, 'subcampo3_objetivo3') <= \
