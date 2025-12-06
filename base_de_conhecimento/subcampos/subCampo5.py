@@ -19,7 +19,7 @@ atividade_desenvolve_saber(Atividade, 'coordenacao_motora_fina') <= \
     tem_caracteristica(Atividade, 'organizacao_de_objetos') & \
     tem_caracteristica(Atividade, 'desenho_e_pintura') & \
     tem_caracteristica(Atividade, 'autonomia_nas_tarefas') & \
-    tem_caracteristica(Atividade, 'dedos_das_maos')
+    tem_caracteristica(Atividade, 'maos')
 
 atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear') <= \
     usa_material(Atividade, 'lapis_de_cor')
@@ -51,7 +51,7 @@ atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_de
     usa_material(Atividade, 'mesa_de_coordenacao_motora_fina')
 atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear') <= \
     tem_caracteristica(Atividade, 'desenho_e_pintura') & \
-    tem_caracteristica(Atividade, 'dedos_das_maos')
+    tem_caracteristica(Atividade, 'maos')
 
 
 
