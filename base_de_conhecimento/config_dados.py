@@ -37,13 +37,13 @@ DADOS_ESFORCO = {
             'lapis_de_cor', 'giz_de_cera', 'pinceis', 'tesoura', 'cola',
             'massinha_de_modelar', 'folhas_naturais', 'pedrinhas', 
             'pecas_de_encaixe', 'quebra_cabeca', 'mesa_de_coordenacao_motora_fina',
-            'material_de_pesca', 'papel', 'tinta_guache'
+            'material_de_pesca', 'papel', 'tinta_guache', 'utensilios_de_higiene', 'bonecas'
         ],
         'ambientes': [
-            'sala', 'cantina', 'biblioteca', 'solario_coberto'
+            'sala', 'refeitorio', 'biblioteca', 'solario'
         ],
         'partes_do_corpo': [
-            'dedos_das_maos', 'dedos_dos_pes', 'maos'
+            'maos'
         ],
         'metas_promovidas': [
             'organizacao_de_objetos', 'autonomia_nas_tarefas', 'desenho_e_pintura'
@@ -60,11 +60,11 @@ DADOS_ESFORCO = {
             'bolas'
         ],
         'ambientes': [
-            'parquinho', 'gramado', 'patio_descoberto', 'solario_descoberto',
-            'parquinho_de_areia', 'saguao_coberto'
+            'parquinho', 'gramado', 'patio', 'solario',
+            'parquinho_de_areia', 'saguao'
         ],
         'partes_do_corpo': [
-            'pernas', 'corpo', 'quadris', 'ombros', 'bracos', 'cabeca'
+            'pernas', 'quadris', 'ombros', 'bracos', 'cabeca'
         ],
         'metas_promovidas': [
             'equilibrio_e_controle_corporal', 'expressao_corporal'
@@ -87,27 +87,27 @@ DADOS_ESFORCO = {
         ],
         'metas_promovidas': [
             'resolucao_de_problemas', 'reconhecimento_de_padroes', 
-            'obedecer_regras', 'imaginacao', 'pedir_ajuda'
+            'obedecer_regras', 'imaginacao', 'pedir_ajuda', 'socializacao'
         ]
     },
 
     # =========================================================
-    # 4. ESFORÇO FÍSICO / SENSORIAL
+    # 4. ESFORÇO SENSORIAL
     # =========================================================
-    'fisico': {
+    'uso_dos_sentidos': {
         'materiais': [
-            'tinta_guache', 'areia', 'agua', 'massinha_de_modelar',
+            'areia', 'agua', 'massinha_de_modelar',
             'instrumentos_musicais', 'musicas', 'folhas_naturais',
-            'comida', 'utensilios_de_higiene'
+            'comida', 'utensilios_de_higiene', 'objetos_pessoais'
         ],
         'ambientes': [
-            'banheiro', 'cantina', 'parquinho_de_areia'
+            'refeitorio', 'sala', 'parquinho_de_areia', 'banheiro'
         ],
         'partes_do_corpo': [
             'ouvidos', 'olhos', 'maos', 'boca', 'nariz'
         ],
         'metas_promovidas': [
-            'exploracao_sensorial', 'socializacao'
+            'exploracao_sensorial' 
         ]
     }
 }
