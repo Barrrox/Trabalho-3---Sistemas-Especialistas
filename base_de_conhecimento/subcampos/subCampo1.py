@@ -39,8 +39,7 @@ atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= \
 
 # Grupos Sociais (família)
 atividade_desenvolve_saber(Atividade, 'grupos_sociais_familia') <= \
-     tem_caracteristica(Atividade, 'obedecer_regras')
-atividade_desenvolve_saber(Atividade, 'grupos_sociais_familia') <= \
+     tem_caracteristica(Atividade, 'obedecer_regras') & \
      tem_caracteristica(Atividade, 'socializacao')
     
 # Esquema corporal
@@ -57,10 +56,17 @@ atividade_desenvolve_saber(Atividade, 'materiais_de_higiene') <= \
 
 # Órgãos dos sentidos
 atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
-    usa_parte_do_corpo(Atividade, ParteDoCorpo) & \
-    caracteristica_implica_esforco(ParteDoCorpo, 'fisico')
-atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
+    promove_tipo_esforco(Atividade, 'uso_dos_sentidos') & \
     tem_caracteristica(Atividade, 'exploracao_sensorial')
+atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
+    tem_caracteristica(Atividade, 'olhos')
+atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
+    tem_caracteristica(Atividade, 'ouvidos')
+atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
+    tem_caracteristica(Atividade, 'nariz')
+atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
+    tem_caracteristica(Atividade, 'boca')
+
 
 # ==========================================
 # Regras específicas para objetivos do subcampo
@@ -112,9 +118,6 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo3') <= \
 atinge_objetivo(Atividade, 'subcampo1_objetivo3') <= \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla') & \
     tem_caracteristica(Atividade, 'ouvidos')
-atinge_objetivo(Atividade, 'subcampo1_objetivo3') <= \
-    atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla') & \
-    tem_caracteristica(Atividade, 'exploracao_sensorial')
 
 
 # OBJ4: Conhecer os objetos, materiais, expressões culturais corporais, danças,
@@ -126,7 +129,8 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo4') <= \
 # OBJ5: Imitar movimentos fundamentais, com auxílio do professor.
 atinge_objetivo(Atividade, 'subcampo1_objetivo5') <= \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_ampla') & \
-    atividade_desenvolve_saber(Atividade, 'esquema_corporal')
+    atividade_desenvolve_saber(Atividade, 'esquema_corporal') & \
+    tem_caracteristica(Atividade, 'obedecer_regras')
 
 # OBJ6: Identificar objetos por meio da visão
 atinge_objetivo(Atividade, 'subcampo1_objetivo6') <= \
@@ -170,9 +174,6 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo11') <= \
 # OBJ12: Perceber diferentes sabores por meio da experimentação de diversos tipos de alimentos, com diferentes texturas.
 atinge_objetivo(Atividade, 'subcampo1_objetivo12') <= \
     atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
-    tem_caracteristica(Atividade, 'boca')
-atinge_objetivo(Atividade, 'subcampo1_objetivo12') <= \
-    atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') & \
     tem_caracteristica(Atividade, 'comida')
 
 # OBJ13: Reconhecer alimentos com diferentes sabores.
@@ -205,8 +206,9 @@ atinge_objetivo(Atividade, 'subcampo1_objetivo17') <= \
 
 # OBJ18: Observar e imitar gestos e movimentos típicos dos profissionais da escola e de sua comunidade próxima.
 atinge_objetivo(Atividade, 'subcampo1_objetivo18') <= \
-    atividade_desenvolve_saber(Atividade, 'manifestacoes_culturais') & \
-    tem_caracteristica(Atividade, 'imaginacao')
+    tem_caracteristica(Atividade, 'obedecer_regras') & \
+    atividade_desenvolve_saber(Atividade, 'grupos_sociais_familia') & \
+    tem_caracteristica(Atividade, 'reconhecimento_de_padroes')
 
 # OBJ19: Expressar, por meio do corpo, de seus gestos e movimentos, confortos e desconfortos.
 atinge_objetivo(Atividade, 'subcampo1_objetivo19') <= \
