@@ -90,6 +90,7 @@ Geralmente regras que exigem combinações (AND) de fatores.
 Agora utilizam 'tem_caracteristica' para serem consistentes.
 """
 
-# Exemplo: Cordas só é fina se usar as mãos (senão pode ser ampla/pular corda)
-promove_tipo_esforco(Atividade, 'coordenacao_motora_fina') <= \
-    (tem_caracteristica(Atividade, 'cordas') & tem_caracteristica(Atividade, 'dedos_das_maos'))
+# DEDOS DAS MAOS NAO EXISTEM MAIS
+# # Exemplo: Cordas só é fina se usar as mãos (senão pode ser ampla/pular corda)
+# promove_tipo_esforco(Atividade, 'coordenacao_motora_fina') <= \
+#     (tem_caracteristica(Atividade, 'cordas') & tem_caracteristica(Atividade, 'dedos_das_maos'))
