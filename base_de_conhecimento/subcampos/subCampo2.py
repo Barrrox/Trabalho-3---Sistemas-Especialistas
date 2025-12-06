@@ -23,9 +23,8 @@ atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= \
 atividade_desenvolve_saber(Atividade, 'corpo_e_espaco') <= \
     promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
 atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
-    tem_caracteristica(Atividade, 'organizacao_de_objetos')
-atividade_desenvolve_saber(Atividade, 'nocoes_espaciais') <= \
-    promove_tipo_esforco(Atividade, 'logico')
+    tem_caracteristica(Atividade, 'reconhecimento_de_padroes') & \
+    promove_tipo_esforco(Atividade, 'coordenacao_motora_ampla')
 atividade_desenvolve_saber(Atividade, 'orientacao_espacial') <= \
     tem_caracteristica(Atividade, 'autonomia_nas_tarefas')
 
