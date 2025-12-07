@@ -72,33 +72,6 @@ atividade_desenvolve_saber(Atividade, 'orgaos_dos_sentidos') <= \
 # Regras específicas para objetivos do subcampo
 # ==========================================
 
-"""
-❖ 
-❖ 
-❖ Explorar seu corpo e o corpo do outro, por meio do toque.
-❖ Perceber diferentes sabores por meio da experimentação de diversos tipos de alimentos, com diferentes texturas.
-❖ Reconhecer alimentos com diferentes sabores.
-❖ Desenvolver a percepção olfativa, sentindo diferentes odores.
-❖ Explorar o próprio corpo na perspectiva de
-conhecê-lo, sentindo os seus movimentos, ouvindo
-seus barulhos, conhecendo suas funções.
-❖ Conhecer e apontar partes do seu corpo e mostrar a correspondência destas em seus colegas.(cabeça, dente, olho, boca, cabelo, unha, dedo, nariz, mão, pé, pescoço, umbigo, joelho, dentre outros).
-
-❖ Vivenciar brincadeiras de esquema corporal, de
-exploração e expressão diante do espelho,
-utilizando as diferentes formas de linguagens e
-percebendo suas características.
-❖ Observar e imitar gestos e movimentos típicos dos
-profissionais da escola e de sua comunidade
-próxima.
-❖ Expressar, por meio do corpo, de seus gestos e
-movimentos, confortos e desconfortos.
-❖ Perceber o desconforto do colega e oferecer-lhe
-acolhimento.
-❖ Participar de atividades que desenvolvam o chutar,
-pegar, manusear, mover e transportar objetos com
-diferentes características.
-"""
 # OBJ1: Participar de brincadeiras com cantigas, rimas, histórias,
 # parlendas ou outras situações que envolvam movimentos corporais.
 atinge_objetivo(Atividade, 'subcampo1_objetivo1') <= \

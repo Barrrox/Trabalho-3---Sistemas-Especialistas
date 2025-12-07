@@ -23,7 +23,6 @@ IMPORTANTE:
     - palavras separadas por underline (_)
     - sem acentuação
     - sem caracteres especiais (ex: ç, ã, ê, etc.)
-2. Não repetir itens no sistema.
 
 """
 
@@ -114,7 +113,6 @@ DADOS_ESFORCO = {
 
 # =========================================================
 # Mapeamento de Códigos de Subcampo para Descrição Completa
-# (Extraído dos comentários iniciais de subCampoX.py)
 # =========================================================
 
 SUBCAMPOS_COMPLETOS = {
