@@ -112,6 +112,82 @@ DADOS_ESFORCO = {
 }
 
 # =========================================================
+# Mapeamento de Textos para Interface (UI)
+# =========================================================
+# Dicionário que traduz o código interno (chave) para o texto de usuário final.
+
+MAPA_TEXTOS_UI = {
+    'agua': 'Água',
+    'areia': 'Areia',
+    'autonomia_nas_tarefas': 'Autonomia nas tarefas',
+    'balanco': 'Balanço',
+    'bamboles': 'Bambolês',
+    'banheiro': 'Banheiro',
+    'biblioteca': 'Biblioteca',
+    'blocos_de_montar': 'Blocos de montar',
+    'boca': 'Boca',
+    'bola_de_pilates': 'Bola de pilates',
+    'bolas': 'Bolas',
+    'bonecas': 'Bonecas',
+    'bracos': 'Braços',
+    'cabeca': 'Cabeça',
+    'carrinhos': 'Carrinhos',
+    'cavalinho_de_balanco': 'Cavalinho de balanço',
+    'cola': 'Cola',
+    'comida': 'Comida',
+    'cones_de_marcacao': 'Cones de marcação',
+    'cordas': 'Cordas',
+    'desenho_e_pintura': 'Desenho e pintura',
+    'equilibrio_e_controle_corporal': 'Equilíbrio e controle corporal',
+    'exploracao_sensorial': 'Exploração sensorial',
+    'expressao_corporal': 'Expressão corporal',
+    'folhas_naturais': 'Folhas naturais',
+    'giz_de_cera': 'Giz de cera',
+    'gramado': 'Gramado',
+    'imaginacao': 'Imaginação',
+    'instrumentos_musicais': 'Instrumentos musicais',
+    'jogos_de_tabuleiro': 'Jogos de tabuleiro',
+    'lapis_de_cor': 'Lápis de cor',
+    'livros': 'Livros',
+    'maos': 'Mãos',
+    'massinha_de_modelar': 'Massinha de modelar',
+    'material_de_pesca': 'Material de pesca',
+    'mesa_de_coordenacao_motora_fina': 'Mesa de coordenação motora fina',
+    'musicas': 'Músicas',
+    'nariz': 'Nariz',
+    'obedecer_regras': 'Obedecer regras',
+    'objetos_pessoais': 'Objetos pessoais',
+    'olhos': 'Olhos',
+    'ombros': 'Ombros',
+    'organizacao_de_objetos': 'Organização de objetos',
+    'ouvidos': 'Ouvidos',
+    'papel': 'Papel',
+    'parquinho': 'Parquinho',
+    'parquinho_de_areia': 'Parquinho de areia',
+    'patio': 'Pátio',
+    'pecas_de_encaixe': 'Peças de encaixe',
+    'pedir_ajuda': 'Pedir ajuda',
+    'pedrinhas': 'Pedrinhas',
+    'pernas': 'Pernas',
+    'pinceis': 'Pincéis',
+    'pula_pula': 'Pula-pula',
+    'quadris': 'Quadris',
+    'quebra_cabeca': 'Quebra-cabeça',
+    'reconhecimento_de_padroes': 'Reconhecimento de padrões',
+    'refeitorio': 'Refeitório',
+    'resolucao_de_problemas': 'Resolução de problemas',
+    'saguao': 'Saguão',
+    'sala': 'Sala',
+    'socializacao': 'Socialização',
+    'solario': 'Solário',
+    'tesoura': 'Tesoura',
+    'tinta_guache': 'Tinta guache',
+    'utensilios_de_higiene': 'Utensílios de higiene',
+    'videos': 'Vídeos'
+}
+
+
+# =========================================================
 # Mapeamento de Códigos de Subcampo para Descrição Completa
 # =========================================================
 

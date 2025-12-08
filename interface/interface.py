@@ -30,14 +30,16 @@ from base_de_conhecimento.subcampos.subCampo3 import *
 from base_de_conhecimento.subcampos.subCampo4 import *
 from base_de_conhecimento.subcampos.subCampo5 import *
 
-# Importa dados
-from base_de_conhecimento.config_dados import DADOS_ESFORCO, OBJETIVOS_COMPLETOS, SUBCAMPOS_COMPLETOS 
+# Importa dados e o mapeamento de texto
+from base_de_conhecimento.config_dados import DADOS_ESFORCO, OBJETIVOS_COMPLETOS, SUBCAMPOS_COMPLETOS, MAPA_TEXTOS_UI
 
 # =========================================================
 # LÓGICA DO SISTEMA
 # =========================================================
 
-# 
+# Captura todos os itens de uma certa caracteristica e retorna uma
+# lista desses itens sem repetição
+# Ex: se chave = "ambientes", retornará todos os ambientes da base de dados
 def obter_opcoes_unicas(chave):
     itens = set()
     for categoria in DADOS_ESFORCO.values():
@@ -47,7 +49,11 @@ def obter_opcoes_unicas(chave):
 
 # Formata texto para mostrar na interface
 def formatar_texto(texto):
-    return texto.replace('_', ' ').capitalize()
+    try:
+        return MAPA_TEXTOS_UI[texto]
+    except KeyError:
+        mensagem_erro = f"[ERRO: '{texto}' não encontrado no dicionario de mapeamento. Insira a caracteristica no MAPA_TEXTOS_UI no arquivo config_dados.py]"
+        sys.exit(mensagem_erro)
 
 """
 O motor de inferência do PyDataLog dá erro quando tenta acionar um predicado que não
