@@ -16,9 +16,7 @@ atividade_pertence_ao_subcampo(Atividade, 'EI02/03CG05') <= atividade_desenvolve
 # ==========================================
 
 atividade_desenvolve_saber(Atividade, 'coordenacao_motora_fina') <= \
-    tem_caracteristica(Atividade, 'organizacao_de_objetos') & \
     tem_caracteristica(Atividade, 'desenho_e_pintura') & \
-    tem_caracteristica(Atividade, 'autonomia_nas_tarefas') & \
     tem_caracteristica(Atividade, 'maos')
 
 atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear') <= \
@@ -62,8 +60,6 @@ atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_de
 # OBJ1: Conhecer a forma como segura instrumentos graficos
 atinge_objetivo(Atividade, 'subcampo5_objetivo1') <= \
     atividade_desenvolve_saber(Atividade, 'coordenacao_motora_fina') & \
-    tem_caracteristica(Atividade, 'autonomia_nas_tarefas') & \
-    tem_caracteristica(Atividade, 'reconhecimento_de_padroes') & \
     atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear')
 
 # OBJ2: Virar paginas de livros, revistas, jornais, etc
