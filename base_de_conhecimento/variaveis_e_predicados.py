@@ -39,10 +39,11 @@ pyd.create_terms('atinge_objetivo')
 # ===========================================
 # 2. CARREGANDO FATOS (CONFIG -> PYDATALOG)
 # ===========================================
-"""
-Aqui iteramos sobre o dicionário DADOS_ESFORCO e criamos fatos unificados na memória.
-Independentemente de ser material ou ambiente, carregamos como 'caracteristica_implica_esforco'.
-"""
+
+# O loop abaixo converte o dicionário estático do Python
+# em Fatos Lógicos do PyDatalog.
+# Ex: Se DADOS_ESFORCO diz que 'bola' é material de 'coordenacao_ampla',
+# o loop cria o fato lógico: caracteristica_implica_esforco('bola', 'coordenacao_ampla').
 
 # Itera sobre todos os tipos de esforço definidos no DADOS_ESFORCO
 for tipo_esforco, categorias in DADOS_ESFORCO.items():
@@ -55,7 +56,7 @@ for tipo_esforco, categorias in DADOS_ESFORCO.items():
 
 
 # ===========================================
-# 3. REGRAS DE UNIFICAÇÃO (O FUNIL)
+# 3. REGRAS DE UNIFICAÇÃO
 # ===========================================
 """
 Convertemos as entradas específicas do usuário em uma característica genérica.
@@ -79,18 +80,3 @@ então a atividade promove esse esforço.
 promove_tipo_esforco(Atividade, Esforco) <= \
     tem_caracteristica(Atividade, Caracteristica) & \
     caracteristica_implica_esforco(Caracteristica, Esforco)
-
-
-# ===========================================
-# 5. CASOS ESPECIAIS (REGRAS COMPLEXAS)
-# ===========================================
-"""
-Aqui ficam as regras que NÃO são classificações diretas 1-para-1.
-Geralmente regras que exigem combinações (AND) de fatores.
-Agora utilizam 'tem_caracteristica' para serem consistentes.
-"""
-
-# DEDOS DAS MAOS NAO EXISTEM MAIS
-# # Exemplo: Cordas só é fina se usar as mãos (senão pode ser ampla/pular corda)
-# promove_tipo_esforco(Atividade, 'coordenacao_motora_fina') <= \
-#     (tem_caracteristica(Atividade, 'cordas') & tem_caracteristica(Atividade, 'dedos_das_maos'))

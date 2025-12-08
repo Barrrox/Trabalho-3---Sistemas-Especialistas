@@ -5,30 +5,39 @@ import os
 # =========================================================
 # CONFIGURAÇÃO DE CAMINHOS
 # =========================================================
-if getattr(sys, 'frozen', False):
-    base_path = sys._MEIPASS
-    project_root = base_path
-else:
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.abspath(os.path.join(current_dir, '..'))
 
-sys.path.append(project_root)
+# Esse código serve para garantir que os caminhos do programa estejam
+# corretamente configurados independente se o programa foi compilado em um
+# executavel (frozen) ou não.
+
+if getattr(sys, 'frozen', False):
+    root = sys._MEIPASS
+else:
+    dir_atual = os.path.dirname(os.path.abspath(__file__))
+    root = os.path.abspath(os.path.join(dir_atual, '..'))
+
+sys.path.append(root)
 
 # =========================================================
 # IMPORTS DO SISTEMA ESPECIALISTA
 # =========================================================
 from pyDatalog import pyDatalog as pyd
+
+# importa regras dos subcampos
 from base_de_conhecimento.subcampos.subCampo1 import *
 from base_de_conhecimento.subcampos.subCampo2 import *
 from base_de_conhecimento.subcampos.subCampo3 import *
 from base_de_conhecimento.subcampos.subCampo4 import *
 from base_de_conhecimento.subcampos.subCampo5 import *
+
+# Importa dados
 from base_de_conhecimento.config_dados import DADOS_ESFORCO, OBJETIVOS_COMPLETOS, SUBCAMPOS_COMPLETOS 
 
 # =========================================================
 # LÓGICA DO SISTEMA
 # =========================================================
 
+# 
 def obter_opcoes_unicas(chave):
     itens = set()
     for categoria in DADOS_ESFORCO.values():
@@ -36,16 +45,29 @@ def obter_opcoes_unicas(chave):
         itens.update(lista)
     return sorted(list(itens))
 
+# Formata texto para mostrar na interface
 def formatar_texto(texto):
     return texto.replace('_', ' ').capitalize()
 
+"""
+O motor de inferência do PyDataLog dá erro quando tenta acionar um predicado que não
+foi alocado na memória ainda. Isso ocorre quando o usuário não escolhe alguma caracteristica
+dentro de um grupo. 
+
+Por exemplo: se a atividade não usa material algum, o predicado usa_material não é 
+alocado na memória. Quando o motor de inferência está raciocinando e encontra 
+essse predicado no meio das regras nos subcampos, ele não o reconhece e crasha.
+
+Por isso, adicionam-se fatos "dummy" que são removidos logo depois para alocar esses predicados.
+"""
+
 def inicializar_pydatalog():
     pyd.create_terms('Y')
-    # Inicializa fatos dummy para evitar erros de primeira execução
-    + usa_ambiente('init', 'init'); - usa_ambiente('init', 'init')
-    + usa_material('init', 'init'); - usa_material('init', 'init')
-    + usa_parte_do_corpo('init', 'init'); - usa_parte_do_corpo('init', 'init')
-    + promove_a_meta('init', 'init'); - promove_a_meta('init', 'init')
+    
+    + usa_ambiente('dummy', 'dummy'); - usa_ambiente('dummy', 'dummy')
+    + usa_material('dummy', 'dummy'); - usa_material('dummy', 'dummy')
+    + usa_parte_do_corpo('dummy', 'dummy'); - usa_parte_do_corpo('dummy', 'dummy')
+    + promove_a_meta('dummy', 'dummy'); - promove_a_meta('dummy', 'dummy')
 
 # =========================================================
 # INTERFACE GRÁFICA (CustomTkinter)
@@ -63,7 +85,7 @@ class App(ctk.CTk):
         inicializar_pydatalog()
         
         # --- ESTRUTURA DE LAYOUT ---
-        # Ordem de empacotamento (pack) é importante aqui
+        # Ordem de empacotamento (pack) é importante para o tkinter
         # Queremos:
         # 1. Resultados (Fixo no fundo)
         # 2. Botões (Fixo acima dos resultados)
@@ -153,7 +175,7 @@ class App(ctk.CTk):
 
     def limpar_memoria_pydatalog(self, atividade_id):
         """
-        Remove fatos antigos da memória do pyDatalog para evitar conflitos.
+        Remove fatos antigos da memória do pyDatalog
         """
         # Limpa ambientes
         for item in obter_opcoes_unicas('ambientes'):

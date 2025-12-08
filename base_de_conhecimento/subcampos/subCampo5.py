@@ -52,7 +52,6 @@ atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_de
     tem_caracteristica(Atividade, 'maos')
 
 
-
 # ==========================================
 # Regras específicas para objetivos do subcampo
 # ==========================================

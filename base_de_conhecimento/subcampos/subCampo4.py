@@ -25,7 +25,7 @@ atividade_desenvolve_saber(Atividade, 'habitos_alimentares_de_higiene_e_repouso'
     usa_material(Atividade, 'utensilios_de_higiene') & \
     usa_material(Atividade, 'comida') & \
     tem_caracteristica(Atividade, 'autonomia_nas_tarefas') & \
-    usa_ambiente(Atividade, 'cantina') & \
+    usa_ambiente(Atividade, 'refeitorio') & \
     usa_ambiente(Atividade, 'banheiro')
 atividade_desenvolve_saber(Atividade, 'cuidados_com_saude') <= \
     usa_material(Atividade, 'utensilios_de_higiene') & \
@@ -46,7 +46,7 @@ atinge_objetivo(Atividade, 'subcampo4_objetivo1') <= \
 atinge_objetivo(Atividade, 'subcampo4_objetivo2') <= \
     atividade_desenvolve_saber(Atividade, 'habitos_alimentares_de_higiene_e_repouso') & \
     usa_material(Atividade, 'comida') & \
-    usa_ambiente(Atividade, 'cantina')
+    usa_ambiente(Atividade, 'refeitorio')
 
 # OBJ3: Participar de momentos de cuidados de si, solicitando ajuda
 atinge_objetivo(Atividade, 'subcampo4_objetivo3') <= \
