@@ -1,7 +1,7 @@
 # Sistema Especialista Classificador de Atividades da Educação Infantil
 
 **Disciplina:** Inteligência Artificial - Trabalho 3 (Sistemas Especialistas)
-
+ 
 ### Autores
 * **Ellen Christini Schreiber Brzozoski** ([@EllenCandy](https://github.com/EllenCandy))
 * **Lóra Leonarda Lívero Lavaqui** ([@LoraLeonarda](https://github.com/LoraLeonarda))
