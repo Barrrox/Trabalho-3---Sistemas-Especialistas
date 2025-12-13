@@ -44,8 +44,6 @@ atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_de
 atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear') <= \
     usa_material(Atividade, 'pecas_de_encaixe')
 atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear') <= \
-    usa_material(Atividade, 'quebra_cabeca')
-atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear') <= \
     usa_material(Atividade, 'mesa_de_coordenacao_motora_fina')
 atividade_desenvolve_saber(Atividade, 'suportes_materiais_e_instrumentos_para_desenhar_pintar_folhear') <= \
     tem_caracteristica(Atividade, 'desenho_e_pintura') & \
