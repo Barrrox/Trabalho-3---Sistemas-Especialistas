@@ -1,4 +1,4 @@
-# Sistema Especialista - Educação Infantil (BNCC)
+# Sistema Especialista Classificador de Atividades da Educação Infantil
 
 **Disciplina:** Inteligência Artificial - Trabalho 3 (Sistemas Especialistas)
 
@@ -12,7 +12,7 @@
 
 ## Sobre o Projeto
 
-Este projeto é um Sistema Especialista desenvolvido em Python 3.14 para classificar atividades pedagógicas de acordo com a Base Nacional Comum Curricular (BNCC).
+Este projeto é um Sistema Especialista desenvolvido em Python 3.14 para classificar atividades pedagógicas de acordo com o Referencial Curricular do Paraná.
 
 O sistema utiliza um motor de inferência lógica para analisar entradas (ambiente, materiais, partes do corpo e metas) e determinar quais Objetivos de Aprendizagem e Desenvolvimento são contemplados pela atividade proposta.
 
