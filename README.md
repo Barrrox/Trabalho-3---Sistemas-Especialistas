@@ -1,5 +1,5 @@
 # Sistema Especialista Classificador de Atividades da Educação Infantil
-
+ 
 **Disciplina:** Inteligência Artificial - Trabalho 3 (Sistemas Especialistas)
  
 ### Autores
