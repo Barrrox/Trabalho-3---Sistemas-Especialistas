@@ -50,7 +50,7 @@ No terminal, na raiz do projeto:
 pip install pyDatalog customtkinter
 ```
 
-Para criar um arquivo executável do sistema, baixe o pyinstaller:
+Para criar um arquivo executável para Windowns do sistema, baixe o pyinstaller:
 
 ```bash
 pip install pyinstaller
@@ -60,7 +60,7 @@ pip install pyinstaller
 
 *ATENÇÃO: É necessário estar na raiz do projeto para executá-lo*
 
-Há 3 formas de utilizar esse sistema. Primeiro, você pode executar a main para obter uma interface CLI. Essa interface foi utiliza inicialmente para testes e provavelmente estará desatualizada em relação à interface iterativa. Utilize o comando:
+Há 3 formas de utilizar esse sistema. Primeiro, você pode executar a main para obter uma interface CLI. Essa interface foi utilizada no desenvolvimen para debug rápido e tem menos recursos que a interface interativa, mas nada que afete a funcionalidade. Utilize o comando:
 
 ```bash
 python main.py
@@ -72,7 +72,7 @@ Você pode executar o código da interface com comando:
 python interface/interface.py
 ```
 
-E você também pode gerar um executável (que no fim das contas, vai executar interface.py também)
+E você também pode gerar um executável para Windows (que no fim das contas, executa a interface.py)
 
 ## Gerar Executável (.exe)
 
