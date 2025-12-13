@@ -85,7 +85,7 @@ atinge_objetivo(Atividade, 'subcampo2_objetivo7') <= \
 atinge_objetivo(Atividade, 'subcampo2_objetivo8') <= \
     atividade_desenvolve_saber(Atividade, 'nocoes_espaciais')
 
-# OBJ9: Participar de situacoes que o professor demonstra localizao de objetos
+# OBJ9: Participar de situacoes que o professor demonstra localização de objetos
 atinge_objetivo(Atividade, 'subcampo2_objetivo9') <= \
     atividade_desenvolve_saber(Atividade, 'orientacao_espacial') & \
     tem_caracteristica(Atividade, 'obedecer_regras')

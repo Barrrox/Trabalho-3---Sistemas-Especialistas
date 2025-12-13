@@ -40,8 +40,7 @@ pyd.create_terms('atinge_objetivo')
 # 2. CARREGANDO FATOS (CONFIG -> PYDATALOG)
 # ===========================================
 
-# O loop abaixo converte o dicionário estático do Python
-# em Fatos Lógicos do PyDatalog.
+# O loop abaixo converte o dicionário do Python em Fatos do PyDatalog.
 # Ex: Se DADOS_ESFORCO diz que 'bola' é material de 'coordenacao_ampla',
 # o loop cria o fato lógico: caracteristica_implica_esforco('bola', 'coordenacao_ampla').
 

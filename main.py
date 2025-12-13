@@ -36,8 +36,6 @@ def exibir_menu_e_selecionar(titulo, lista_opcoes):
     print("  - Pressione Enter sem digitar nada para selecionar nenhum")
     
     for i, item in enumerate(lista_opcoes):
-        # # Formata o texto para ficar mais bonito (troca _ por espaço)
-        # nome_exibicao = item.replace('_', ' ').capitalize()
         print(f"[{i}] {item}")
     
     escolha_valida = False
@@ -46,7 +44,7 @@ def exibir_menu_e_selecionar(titulo, lista_opcoes):
     while not escolha_valida:
         entrada = input(">> ")
 
-        # Opção secreta para os devs :)
+        # Opção de teste rápido secreta para os devs :)
         if entrada == "tudo":
             selecionados = [lista_opcoes[i] for i in range(len(lista_opcoes))]
             escolha_valida = True
@@ -59,7 +57,6 @@ def exibir_menu_e_selecionar(titulo, lista_opcoes):
         try:
             indices = [int(x.strip()) for x in entrada.split(',')]
             
-            print(indices)
             # Valida se os indices existem
             if any(i < 0 or i >= len(lista_opcoes) for i in indices):
                 print("ERRO: Um ou mais números são inválidos. Tente novamente.")

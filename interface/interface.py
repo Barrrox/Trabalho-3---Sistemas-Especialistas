@@ -7,8 +7,8 @@ import os
 # =========================================================
 
 # Esse código serve para garantir que os caminhos do programa estejam
-# corretamente configurados independente se o programa foi compilado em um
-# executavel (frozen) ou não.
+# corretamente configurados para funcionar tanto no desenvolvimento
+# quanto no executavel (frozen) 
 
 if getattr(sys, 'frozen', False):
     root = sys._MEIPASS
